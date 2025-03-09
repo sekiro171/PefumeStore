@@ -57,18 +57,18 @@
                                                     <ul class="mega_menu_inner">
                                                         <li style="color: black; font-size: 16px">
 
-                                                            <a href="refine?cid_refine=${0}">ALL</a>
+                                                            <a href="RefineServlet?cid_refine=${0}">ALL</a>
                                                         </li>
                                                         <c:forEach items="${requestScope.category}" var="c">
                                                             <li style="color: black; font-size: 16px">
-                                                                <a href="refine?cid_refine=${c.id}">${c.name}</a>
+                                                                <a href="RefineServlet?cid_refine=${c.id}">${c.name}</a>
                                                             </li>
                                                         </c:forEach>
                                                     </ul>
                                                 </div>
                                             </li>
                                             <li><a href="aboutUs.jsp">About Us</a></li>
-                                            <li><a href="contact">Contact Us</a></li>
+                                            <li><a href="contact.jsp">Contact Us</a></li>
                                                 <c:if test="${sessionScope.account==null}">
                                                 <li>
                                                     <a href="#">User <i class="fa fa-angle-down"></i></a>
@@ -126,13 +126,13 @@
                             <div class="product_tab_btn">
                                 <ul class="nav" role="tablist">
                                     <li>
-                                        <a href="home1?cid=${0}" class="${chid[0]==true?"active":""}">
+                                        <a href="RefineServlet?cid=${0}" class="${chid[0]==true?"active":""}">
                                             ALL
                                         </a>
                                     </li>
                                     <c:forEach items="${requestScope.category}" var="c">
                                         <li value="${c.id}" >
-                                            <a href="home1?cidYear=${c.id}" class="${c.id==cidYear?"active":""}">
+                                            <a href="Home1Servlet?cidYear=${c.id}" class="${c.id==cidYear?"active":""}">
                                                 ${c.name}
                                             </a>
                                         </li>
@@ -150,11 +150,13 @@
                                     <div class="col-lg-3">
                                         <article class="single_product">
                                             <figure>
-                                                <div class="product_thumb">
-                                                    <a href="#" class="primary_img">
+                                                <div class="product_thumb" onclick="openModal('modal_box',${p.id}, '${p.image[0]}', '${p.image[1]}',
+                                                                '${p.name}',${p.salePrice},${p.price}, '${p.describe}', '${p.classifyStr}',
+                                                                '${p.supplier.getCompanyName()}')">
+                                                    <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
                                                         <img src="${p.image[0]}" alt="">
                                                     </a>
-                                                    <a href="#" class="secondary_img"  height="270px">
+                                                    <a href="#" class="secondary_img"  height="270px" data-toggle="modal" data-target="#modal_box">
                                                         <img src="${p.image[1]}" alt="">
                                                     </a>
                                                     <div class="action_links">
@@ -304,12 +306,14 @@
                                         <div class="col-lg-3">
                                             <article class="single_product">
                                                 <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="#" class="primary_img">
+                                                    <div class="product_thumb" onclick="openModal('modal_box', ${hotDeal.id}, '${hotDeal.image[0]}', '${hotDeal.image[1]}',
+                                                                    '${hotDeal.name}',${hotDeal.salePrice},${hotDeal.price}, '${hotDeal.describe}', '${hotDeal.classifyStr}',
+                                                                    '${hotDeal.supplier.getCompanyName()}')" >
+                                                        <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
                                                             <img src="${hotDeal.image[0]}" alt="">
                                                         </a>
-                                                        <a href="#" class="secondary_img">
-                                                            <img src="${hotDeal.image[1]}" alt="">
+                                                        <a href="#" class="secondary_img" alt="" data-toggle="modal" data-target="#modal_box">
+                                                            <img src="${hotDeal.image[1]}" >
                                                         </a>
                                                         <div class="action_links">
                                                             <ul>
@@ -402,15 +406,15 @@
                                                 <c:if test="${(not breakLoop && count < 3) || (breakLoop && 3 < count && count < 7)}">
                                                     <c:if test="${count == status.index}">
                                                         <article class="single_product" data-toggle="modal" data-target="#modal_box">
-                                                            <figure 
-                                                                onclick="openModal('modal_box', ${giftSet.id}, '${giftSet.image[0]}', '${giftSet.image[1]}',
+                                                            <figure>
+                                                                <div class="product_thumb" onclick="openModal('modal_box', ${giftSet.id}, '${giftSet.image[0]}', '${giftSet.image[1]}',
                                                                                 '${giftSet.name}',${giftSet.salePrice},${giftSet.price}, '${giftSet.describe}', '${giftSet.classifyStr}',
                                                                                 '${giftSet.supplier.getCompanyName()}')">
-                                                                <div class="product_thumb">
-                                                                    <a href="#" class="primary_img">
+                                                                    <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
                                                                         <img src="${giftSet.image[0]}" alt="">
                                                                     </a>
-                                                                    <a href="#" class="secondary_img"><img
+                                                                    <a href="#" class="secondary_img" data-toggle="modal" data-target="#modal_box">
+                                                                        <img
                                                                             src="${giftSet.image[1]}" alt=""></a>
                                                                 </div>
                                                                 <figcaption class="product_content">
@@ -468,11 +472,11 @@
                                     <div class="section_title section_title_style2">
                                         <h2 style="font-size: 20px">Brand</h2>
                                     </div>
-                                    <form id="f3" action="refine" method="get">
+                                    <form id="f3" action="RefineServlet" method="get">
                                         <div class="" style="margin: 0">
                                             <h2 style="font-size: 16px;"></h2>
                                             <fieldset class="responsiveFacets_sectionContent " aria-hidden="false">
-                                                <div href="#" class="responsiveFacets_sectionItemLabel" onclick="pageRefine(0)">
+                                                <div href="RefineServlet" class="responsiveFacets_sectionItemLabel" onclick="pageRefine(0)">
                                                     <label class="responsiveFacets_sectionItem" for="brand">
                                                         ALL (${listAll.size()})
                                                     </label>
@@ -531,12 +535,14 @@
                                             <div class="col-lg-3">
                                                 <article class="single_product">
                                                     <figure>
-                                                        <div class="product_thumb">
-                                                            <a href="#" class="primary_img">
-                                                                <img src="${t.image[0]}" alt="">
+                                                        <div class="product_thumb" onclick="openModal('modal_box',${t.id}, '${t.image[0]}', '${t.image[1]}',
+                                                                        '${t.name}',${t.salePrice},${t.price}, '${t.describe}', '${t.classifyStr}',
+                                                                        '${t.supplier.getCompanyName()}')">
+                                                            <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
+                                                                <img src="${t.image[0]}" alt="" data-toggle="modal" data-target="#modal_box">
                                                             </a>
-                                                            <a href="#" class="secondary_img">
-                                                                <img src="${t.image[1]}" alt="">
+                                                            <a href="#" class="secondary_img" data-toggle="modal" data-target="#modal_box">
+                                                                <img src="${t.image[1]}" alt="" data-toggle="modal" data-target="#modal_box">
                                                             </a>
 
                                                             <div class="action_links">
@@ -643,11 +649,13 @@
                                         <div class="product_items col-lg-4" style="margin: 30px 0">
                                             <article class="single_product">
                                                 <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="#" class="primary_img">
+                                                    <div class="product_thumb" onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
+                                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
+                                                                                    '${i.supplier.getCompanyName()}')">>
+                                                        <a href="#" class="primary_img"  data-toggle="modal" data-target="#modal_box">
                                                             <img src="${i.image[0]}" alt="">
                                                         </a>
-                                                        <a href="#" class="secondary_img">
+                                                        <a href="#" class="secondary_img"  data-toggle="modal" data-target="#modal_box">
                                                             <img src="${i.image[1]}" alt="">
                                                         </a>
 
@@ -761,20 +769,20 @@
                                 <h3>Information</h3>
                                 <div class="footer_menu">
                                     <ul>
-                                        <li><a href="home">Home</a></li>
-                                        <li><a href="aboutus">About Us</a></li>
-                                        <li><a href="refine?cid_refine=0">Shopping</a></li>
-                                        <li><a href="refine?cid_refine=5">Gift set</a></li>
-                                        <li><a href="profile">My Account</a></li>
+                                        <li><a href="HomeServlet">Home</a></li>
+                                        <li><a href="aboutus.jsp">About Us</a></li>
+                                        <li><a href="RefineServlet?cid_refine=0">Shopping</a></li>
+                                        <li><a href="RefineServlet?cid_refine=5">Gift set</a></li>
+                                        <li><a href="profile.jsp">My Account</a></li>
                                         <li><a href="viewcart">Order</a></li>
                                         <li><a href="viewwishlist">Wish List</a></li>
-                                        <li><a href="contact">Contact Us</a></li>
+                                        <li><a href="contact.jsp">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="col-lg-3 col-md-6">
                             <div class="widgets_container widgets_p_product">
                                 <h3>Featured Products</h3>

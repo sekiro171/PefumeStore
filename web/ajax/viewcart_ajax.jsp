@@ -75,7 +75,7 @@
                                     <h6 class="mob-text">${item.price}</h6>
                                 </div>
                                 <div class="col-3">
-                                    <a  href="viewcart?rid=${item.product.id}"
+                                    <a  href="ViewCartServlet?rid=${item.product.id}"
                                         style="padding: 8px 15px; border: none; border-radius: 5px; background-color: #1763c7; color: white">
                                         Delete
                                     </a>
@@ -107,7 +107,7 @@
                                     </h6>
                                 </div>
                                 <span>
-                                    <form action="viewcart" method="post">
+                                    <form action="ViewCartServlet" method="post">
                                         <input class="btn-block btn-blue" type="submit" value="CHECKOUT" id="checkout"
                                                style="color: white; font-weight: bold; background-color: orange"/>
                                     </form>
