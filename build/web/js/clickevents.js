@@ -219,7 +219,7 @@ function notAccept() {
 //
 function checkLogout(choice) {
     if (choice == 'yes') {
-        document.getElementById('logout').href = 'logout';
+        document.getElementById('logout').href = 'LogoutServlet';
     }
 }
 //
@@ -229,7 +229,7 @@ function loadProductCart(obj) {
     var id = document.getElementById("id").value;
     var role = document.getElementById("role").value;
     $.ajax({
-        url: "/PefumeMN-Website/cart",
+        url: "/pefumeWeb/CartServlet",
         type: "get",
         data: {
             quantity: quantity,
@@ -250,7 +250,7 @@ function removeProductCart(obj) {
     var id = obj.value;
     console.log(role, id);
     $.ajax({
-        url: "/PefumeMN-Website/cart",
+        url: "/pefumeWeb/CartServlet",
         type: "get",
         data: {
             rid: id,
@@ -269,7 +269,7 @@ function removeProductCart(obj) {
 function reloadPriceViewCart(id) {
     event.preventDefault();
     $.ajax({
-        url: "/PefumeMN-Website/priceviewcart",
+        url: "/pefumeWeb/PriceViewCartServlet",
         type: "get",
         data: {
             rid: id
@@ -286,7 +286,7 @@ function reloadPriceViewCart(id) {
 function toggleWishlist(id) {
     event.preventDefault();
     $.ajax({
-        url: "/PefumeMN-Website/wishlist",
+        url: "/pefumeWeb/WishListServlet",
         type: "get",
         data: {
             wishId: id

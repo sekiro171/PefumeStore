@@ -57,18 +57,18 @@
                 <ul>
                     <li class="user">
                         <c:if test="${sessionScope.account == null}">
-                            <a href="login" title="Icon User">
+                            <a href="login.jsp" title="Icon User">
                                 <i class="fa fa-user-circle"></i>
                             </a>
                         </c:if>
                         <c:if test="${sessionScope.account != null && sessionScope.account.roleID!=1}">
-                            <a href="profile" title="Icon User">
+                            <a href="profile.jsp" title="Icon User">
                                 <i class="fa fa-user-circle"></i>
                             </a>
                         </c:if>
                     </li>
                     <li class="header_wishlist">
-                        <a href="viewwishlist">
+                        <a href="viewwishlist.jsp">
                             <i class="fa fa-heart-o"></i>
                             <c:if test="${sessionScope.wishList != null && sessionScope.wishListSize != 0}" >
                                 <span class="item_count">
@@ -142,7 +142,7 @@
                             </div>
                             <div class="mini_cart_footer">
                                 <div class="cart_button">
-                                    <a href="${sessionScope.account == null ? 'login' : 'viewcart'}">View Cart</a>
+                                    <a href="${sessionScope.account == null ? 'login.jsp' : 'ViewCartServlet'}">View Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -156,8 +156,8 @@
                             <i class="fa fa-cog"></i>
                         </a>
                         <ul class="dropdown_links">
-                            <li><a href="profile">My Account</a></li>
-                            <li><a href="profile">Shopping cart</a></li>
+                            <li><a href="profile.jsp">My Account</a></li>
+                            <li><a href="RefineServlet">Shopping cart</a></li>
                         </ul>
                     </li>
                     <c:if test="${sessionScope.account!=null}">
@@ -174,7 +174,7 @@
                                 border-radius: 5px;
                                 box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);">
                                 <li class="option_avt"><a href="#">Checkout</a>
-                                <li class="option_avt"><a href="${sessionScope.account.roleID==1?"admin":"profile"}">My Account</a></li>
+                                <li class="option_avt"><a href="${sessionScope.account.roleID==1?"admin":"profile.jsp"}">My Account</a></li>
                                 <li class="option_avt"><a id="logout" href="#" onclick="checkLogout()">${sessionScope.account==null ? "": "Logout"}</a></li>
                             </ul>
 

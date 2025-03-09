@@ -196,7 +196,7 @@
         <header style="background-color: black; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center">
             <div class="col-lg-2">
                 <div class="logo">
-                    <a href="home"><img src="images/logo.png" alt=""></a>
+                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
                 </div>
             </div>
             <jsp:include page="header_right.jsp"></jsp:include>
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="col-6" style="margin-top: -15px;display: flex; justify-content: space-between; align-items: center;" >
                                     <div class="col-9">
-                                        <form action="viewwishlist" method="post" style="display:flex">
+                                        <form action="ViewWishListServlet" method="post" style="display:flex">
                                             <input name="quantity" type="number" min="1" max="100" step="1" value="1" style="width:100px">
                                             <input name="id" type="hidden" value="${p.id}">
                                             <input name="role" type="hidden" value="add">
@@ -257,7 +257,7 @@
                                         </form>
                                     </div>
                                     <div class="col-3" style="text-align: center">
-                                        <a  href="viewwishlist?rid=${item.product.id}"
+                                        <a  href="ViewWishListServlet?rid=${item.product.id}"
                                             style="color: orange; font-size: 30px">
                                             <i class="fa-regular fa-heart"></i>
                                         </a>

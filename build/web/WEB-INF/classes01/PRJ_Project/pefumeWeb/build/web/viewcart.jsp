@@ -16,6 +16,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>-->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdn.tailwindcss.com/3.3.2"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"/>-->
         <style>
             body {
                 color: #000;
@@ -183,7 +192,7 @@
         <header style="background-color: black; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center">
             <div class="col-lg-2">
                 <div class="logo">
-                    <a href="home"><img src="images/logo.png" alt=""></a>
+                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10">
@@ -192,6 +201,7 @@
             </header>
 
             <div id="viewcart_content">
+
                 <div class="container px-4 py-5 mx-auto text-center">
                 <c:if test="${requestScope.message1 == 'Order Success'}">
                     <h2 style="color: green; text-align: center">${requestScope.message1}</h2>
@@ -201,7 +211,7 @@
                     <h4 style="color: red; text-align: center">${requestScope.message2}</h4>
                 </c:if>
                 <c:if test="${sessionScope.listItemsInCart == null || sessionScope.cartSize == 0}">
-                    <<img src="images/emptycart1.png" width="400px"  alt="Emptycart"/>
+                    <img src="images/emptycart1.png" width="400px"  alt="Emptycart"/>
                 </c:if>
                 <c:if test="${sessionScope.cartSize != 0}">
                     <div class="row d-flex justify-content-center">
@@ -253,7 +263,7 @@
                                         <h6 class="mob-text">${item.price}</h6>
                                     </div>
                                     <div class="col-3">
-                                        <a  href="viewcart?rid=${item.product.id}" 
+                                        <a  href="ViewCartServlet?rid=${item.product.id}" 
                                             style="padding: 8px 15px; border: none; border-radius: 5px; background-color: #1763c7; color: white">
                                             Delete
                                         </a>
@@ -285,7 +295,7 @@
                                         </h6>
                                     </div>
                                     <span>
-                                        <form action="viewcart" method="post">
+                                        <form action="ViewCartServlet" method="post">
                                             <input class="btn-block btn-blue" type="submit" value="CHECKOUT" id="checkout"
                                                    style="color: white; font-weight: bold; background-color: orange"/>
                                         </form>

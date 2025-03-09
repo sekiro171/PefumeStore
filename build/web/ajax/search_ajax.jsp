@@ -18,11 +18,13 @@
             <div class="product_items ${(requestScope.col == 4)?"col-lg-4":"col-lg-3"}" style="margin: 30px 0">
                 <article class="single_product">
                     <figure>
-                        <div class="product_thumb">
-                            <a href="#" class="primary_img">
+                        <div class="product_thumb" onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
+                                                            '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
+                                                            '${i.supplier.getCompanyName()}')">
+                            <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
                                 <img src="${i.image[0]}" alt="">
                             </a>
-                            <a href="#" class="secondary_img">
+                            <a href="#" class="secondary_img" data-toggle="modal" data-target="#modal_box">
                                 <img src="${i.image[1]}" alt="">
                             </a>
 

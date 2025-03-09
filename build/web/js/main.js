@@ -384,7 +384,7 @@
 
 
 function setCountDown() {
-    var countDownDate = new Date("Jan 5, 2024 11:37:25").getTime();
+    var countDownDate = new Date("May 5, 2025 11:37:25").getTime();
 
     var x = setInterval(function () {
 
@@ -425,7 +425,7 @@ function pageRefine(x) {
 function searchByName() {
     var text = document.querySelector("#searchId").value;
     $.ajax({
-        url: "/PefumeMN-Website/searchProduct",
+        url: "/pefumeWeb/searchProduct",
         type: "get",
         data: {
             txt: text
