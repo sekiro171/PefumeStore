@@ -134,7 +134,7 @@
                                     </h3>
                                 </div>
                                 <div class="col-lg-6" style="text-align: center; margin-top: 20px; margin-bottom: 20px;padding-top: 20px"F>
-                                    <form action="manager" method="post" style="display: flex; justify-content: center">
+                                    <form action="ManagerProductServlet" method="post" style="display: flex; justify-content: center">
                                         <input name="valueSearch" value="${requestScope.searchValue != null ? requestScope.searchValue : ""}" id="searchId" type="text" oninput="searchByName()" placeholder="Search product name" style="width: 60%; padding: 4px 10px; border-radius: 15px">
                                     <button type="submit" style="border-radius: 50%; width: 40px; font-size: 18px; margin-left: 10px"><i class="fa fa-search"></i></button>
                                 </form>
@@ -179,7 +179,7 @@
                                                 </td>
                                                 <td class="text_page">${o.price}$</td>
                                                 <td class="text_page">
-                                                    <a href="updateproduct?pid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
+                                                    <a href="UpdateProductServlet?pid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
                                                     <a href="DeleteProductServlet?pid=${o.id}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a>
                                                 </td>
                                             </tr>

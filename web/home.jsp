@@ -232,10 +232,7 @@
         </div>
 
 
-        <!-- product area ends -->
-
-
-        <!-- banner area starts -->
+  
         <div class="banner_area mb-66">
             <div class="container">
                 <div class="row">
@@ -610,24 +607,6 @@
                                 </div>
                             </div>
 
-                            <!-- product area ends -->
-
-                            <!-- Long banner area starts  -->
-                            <div class="banner_area banner_style_two mb-58">
-                                <div class="single_banner">
-                                    <div class="banner_thumb">
-                                        <a href="#">
-                                            <img src="images/banner/banner4.png" alt="">
-
-                                        </a>
-                                        <div class="banner_content">
-                                            <h3 style="color: tomato;">Sale up to </h3>
-                                            <h2>45%</h2>
-                                            <p>Versace</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <!-- Long Banner area ends -->
 
                             <!-- product section starts  -->
@@ -733,15 +712,12 @@
         </div>
 
 
-        <!-- home section area ends -->
-
-        <!-- blog section ends -->
 
         <footer class="footer_widgets color_two">
             <div class="footer_top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 50px">
                             <div class="widgets_container contact_us">
                                 <div class="footer_logo">
                                     <a href="#"><img src="images/logo.png" alt="Logo"></a>
@@ -751,20 +727,13 @@
                                         perfumes which are not in our database. To do that kindly send a E-mail to the
                                         company's mail id.</p>
                                 </div>
-                                <p>
-                                    <span>Address :</span> Address: 61/2 Quang Trung, Ward 10
-                                    Go Vap District, Ho Chi Minh city
-                                </p>
-                                <p><span>Email :</span> <a href="#">perfumeparadisevn@gmail.com</a></p>
-                                <p><span>Phone :</span> <a href="tel: +91 8888884444">1900 9090</a> </p>
-                                <p style="margin-top: 20px">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.60994153052!2d106.80730807586922!3d10.841132857995166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1703229023591!5m2!1sen!2s" width="330" height="200" style="border:1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-
-                                    </iframe>
-                                </p>
+                                <p> Address : Address:  Khu đô thị FPT City, Ngũ Hành Sơn,Đà Nẵng </p>
+                                <p> perfumeparadisevn@gmail.com </p>
+                                <p> Phone :1900 9090 </p>
+                                <p style="margin-top: 20px"></p>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-6 col-sm-5">
+                        <div class="col-lg-3 col-md-3 col-sm-6" style="margin-right: 100px">
                             <div class="widgets_container widget_menu">
                                 <h3>Information</h3>
                                 <div class="footer_menu">
@@ -774,189 +743,15 @@
                                         <li><a href="RefineServlet?cid_refine=0">Shopping</a></li>
                                         <li><a href="RefineServlet?cid_refine=5">Gift set</a></li>
                                         <li><a href="profile.jsp">My Account</a></li>
-                                        <li><a href="viewcart">Order</a></li>
-                                        <li><a href="viewwishlist">Wish List</a></li>
-                                        <li><a href="contact.jsp">Contact Us</a></li>
+                                        <li><a href="ViewCartServlet">Order</a></li>
+                                        <li><a href="ViewWishListServlet">Wish List</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widgets_container widgets_p_product">
-                                <h3>Featured Products</h3>
-                                <div class="small_product_container small_product_column1 owl-carousel">
-                                    <div class="small_product_list">
-                                        <c:forEach items="${requestScope.productFooter1}" var="p">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="#" class="primary_img">
-                                                            <img src="${p.image[0]}" alt="">
-                                                        </a>
-                                                        <a href="#" class="secondary_img">
-                                                            <img src="${p.image[1]}" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <h4 class="product_name">
-                                                            <a href="#" style="color: white;">${p.name}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <c:if test="${i.price != i.salePrice}">
-                                                                <span class="old_price" style="color: white;">Rs. ${p.price}</span>
-                                                            </c:if>
-                                                            <span class="current_price" style="color: white;">Rs. ${p.salePrice}</span>
-                                                        </div>
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </c:forEach>
-                                    </div>
-                                    <div class="small_product_list">
-                                        <c:forEach items="${requestScope.productFooter2}" var="p">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="#" class="primary_img">
-                                                            <img src="${p.image[0]}" alt="">
-                                                        </a>
-                                                        <a href="#" class="secondary_img">
-                                                            <img src="${p.image[1]}" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <h4 class="product_name">
-                                                            <a href="#" style="color: white;">${p.name}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <c:if test="${i.price != i.salePrice}">
-                                                                <span class="old_price" style="color: white;">Rs. ${p.price}</span>
-                                                            </c:if>
-                                                            <span class="current_price" style="color: white;">Rs. ${p.salePrice}</span>
-                                                        </div>
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </c:forEach>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widgets_container widgets_p_product">
-                                <h3>Most Viewed Products</h3>
-                                <div class="small_product_container small_product_column1 owl-carousel">
-                                    <div class="small_product_list">
-                                        <c:forEach items="${requestScope.productFooter2}" var="p">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb">
-                                                        <a href="#" class="primary_img">
-                                                            <img src="${p.image[0]}" alt="">
-                                                        </a>
-                                                        <a href="#" class="secondary_img">
-                                                            <img src="${p.image[1]}" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <h4 class="product_name">
-                                                            <a href="#" style="color: white;">${p.name}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <c:if test="${i.price != i.salePrice}">
-                                                                <span class="old_price" style="color: white;">Rs. ${p.price}</span>
-                                                            </c:if>
-                                                            <span class="current_price" style="color: white;">Rs. ${p.salePrice}</span>
-                                                        </div>
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </c:forEach>
-                                    </div>
-                                    <div class="small_product_list">
-                                        <article class="single_product">
-
-
-                                            <figure>
-                                                <div class="product_thumb">
-                                                    <a href="#" class="primary_img">
-                                                        <img src="images/best-product/B4-1.png" alt="">
-                                                    </a>
-                                                    <a href="#" class="secondary_img"><img
-                                                            src="images/best-product/B4-2.png" alt=""></a>
-                                                </div>
-                                                <figcaption class="product_content">
-                                                    <h4 class="product_name">
-                                                        <a href="#" style="color: white;">Mugler Aura Women</a>
-                                                    </h4>
-
-                                                    <div class="price_box">
-                                                        <span class="old_price">Rs. 7999</span>
-                                                        <span class="current_price" style="color: white;">Rs. 7550</span>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </article>
-                                        <article class="single_product">
-
-
-                                            <figure>
-                                                <div class="product_thumb">
-                                                    <a href="#" class="primary_img">
-                                                        <img src="images/best-product/B5-1.png" alt="">
-                                                    </a>
-                                                    <a href="#" class="secondary_img"><img
-                                                            src="images/best-product/B5-2.png" alt=""></a>
-                                                </div>
-                                                <figcaption class="product_content">
-                                                    <h4 class="product_name">
-                                                        <a href="#" style="color: white;">Jimmy Choo Women Fever</a>
-                                                    </h4>
-
-                                                    <div class="price_box">
-                                                        <span class="old_price">Rs. 7499</span>
-                                                        <span class="current_price" style="color: white;">Rs. 7200</span>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </article>
-                                        <article class="single_product">
-
-
-                                            <figure>
-                                                <div class="product_thumb">
-                                                    <a href="#" class="primary_img">
-                                                        <img src="images/best-product/B6-1.png" alt="">
-                                                    </a>
-                                                    <a href="#" class="secondary_img"><img
-                                                            src="images/best-product/B6-2.png" alt=""></a>
-                                                </div>
-                                                <figcaption class="product_content">
-                                                    <h4 class="product_name">
-                                                        <a href="#" style="color: white;">Dloce & Gabbana Women </a>
-                                                    </h4>
-
-                                                    <div class="price_box">
-                                                        <span class="old_price">Rs. 7499</span>
-                                                        <span class="current_price" style="color: white;">Rs. 7200</span>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
+        
             <jsp:include page="footer.jsp"/>
         </footer>
 
@@ -970,22 +765,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-                                                                        function submitEmail() {
-                                                                            var text = document.querySelector("#emailDiscount").value;
-                                                                            $.ajax({
-                                                                                url: "/PefumeMN-Website/email",
-                                                                                type: "get",
-                                                                                data: {
-                                                                                    txt: text
-                                                                                },
-                                                                                success: function (data) {
-                                                                                    var row = document.getElementById("newsletter");
-                                                                                    row.innerHTML = data;
-                                                                                },
-                                                                                error: function (xhr) {
-                                                                                }
-                                                                            });
-                                                                        }
         </script>
     </body>
 
