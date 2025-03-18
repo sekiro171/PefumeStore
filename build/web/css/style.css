@@ -892,8 +892,8 @@ h6 {
     background: #f6692a;
 }
 
-/* ********************************************************************** */
-/* header */
+ ********************************************************************** 
+ header 
 .header_transparent {
     position: absolute;
     width: 100%;
@@ -1048,7 +1048,7 @@ h6 {
 .main_menu nav > ul > li:hover ul.sub_menu {
     visibility: visible;
     max-height: 300px;
-    /*    padding: 24px 30px;*/
+        padding: 24px 30px;
 }
 .main_menu nav > ul > li:hover .mega_menu {
     visibility: visible;
@@ -1231,7 +1231,7 @@ h6 {
 }
 .header_top_right .header_right_info > ul > li > a {
     color: #fff;
-    /* color: #000000; */
+     color: #000000; 
 }
 .header_top_right .header_right_info > ul > li:hover > a {
     color: #f6692a;
@@ -1294,7 +1294,7 @@ h6 {
     left: auto;
 }
 
-/* ********************************************* */
+ ********************************************* 
 .slider_section2 .single_slider {
     height: 800px;
 }
@@ -1683,7 +1683,7 @@ h6 {
     }
 }
 
-/* ****************************************** */
+ ****************************************** 
 .section_title {
     text-align: center;
     margin-bottom: 35px;
@@ -2043,7 +2043,7 @@ i.fa.fa-eye{
     }
 }
 
-/* ******************************************* */
+ ******************************************* 
 
 .banner_area {
     margin-bottom: 70px;
@@ -2219,7 +2219,7 @@ i.fa.fa-eye{
     display: block;
 }
 
-/* ********************************************* */
+ ********************************************* 
 
 @media only screen and (max-width: 767px) {
     .home-section_two {
@@ -2392,7 +2392,7 @@ i.fa.fa-eye{
     }
 }
 
-/* ***************************** */
+ ***************************** 
 @media only screen and (max-width: 767px) {
     .small_product_area {
         margin-bottom: 58px;
@@ -2516,7 +2516,7 @@ i.fa.fa-eye{
     }
 }
 
-/* **************Testimonial************** */
+ **************Testimonial************** 
 @media only screen and (max-width: 767px) {
     .testimonial_style_two {
         margin-bottom: 50px;
@@ -2578,7 +2578,7 @@ i.fa.fa-eye{
     text-align: center;
 }
 
-/* ****************************** */
+ ****************************** 
 
 .newsletter_style2 {
     background: inherit;
@@ -2699,7 +2699,7 @@ i.fa.fa-eye{
     }
 }
 
-/* *********************** */
+ *********************** 
 
 .footer_widgets {
     background: #1c1d22;
@@ -2854,7 +2854,7 @@ i.fa.fa-eye{
     }
 }
 
-/* *************************** */
+ *************************** 
 .mb-10 {
     margin-bottom: 10px;
 }
@@ -3187,7 +3187,7 @@ i.fa.fa-eye{
 }
 
 
-/*phan trang*/
+phan trang
 .pagination{
     display: inline-block;
 }
@@ -3203,7 +3203,7 @@ i.fa.fa-eye{
     color: chocolate;
 }
 
-/*filter*/
+filter
 
 .responsiveFacets_sectionItem {
     margin-left: 10px;
@@ -3220,7 +3220,7 @@ i.fa.fa-eye{
     margin-bottom: 5px;
 }
 
-/*uploadfile*/
+uploadfile
 .box_info .avatar input[type="file"] {
     display: none;
 }
@@ -3274,7 +3274,7 @@ a:hover{
 }
 
 
-/*new product23*/
+new product23
 .ani-fire {
     background-image: url("https://dl.dropbox.com/s/r2s8s2r17wi0xm6/flame.png?dl=0");
     background-position: 0 -1000px;

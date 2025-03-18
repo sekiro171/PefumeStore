@@ -425,7 +425,7 @@ function pageRefine(x) {
 function searchByName() {
     var text = document.querySelector("#searchId").value;
     $.ajax({
-        url: "/pefumeWeb/searchProduct",
+        url: "/PerfumeShop/searchProduct",
         type: "get",
         data: {
             txt: text

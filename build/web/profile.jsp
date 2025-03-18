@@ -144,7 +144,7 @@
             <div class="row align-items-center" style="margin: 0">
                 <div class="col-lg-2" style="padding: 0px">
                     <div class="logo">
-                        <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
+                        <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                     </div>
                 </div>
                 <div class="col-lg-3" style="padding: 0px">
@@ -152,15 +152,14 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="HomeServlet">Home</a>
+                                    <a href="RefineServlet">Home</a>
                                 </li>
                                 <li><a href="aboutUs.jsp">About Us</a></li>
-                                <li><a href="contact">Contact Us</a></li>
                                 <li>
                                     <a href="profile.jsp" class="active">Profile</a>
                                 </li>
                                 <li>
-                                    <a href="changepass">Security</a>
+                                    <a href="ChangePassServlet">Security</a>
                                 </li>
                             </ul>
                         </nav>
@@ -196,22 +195,24 @@
                                     <input type="file" name="" id="form_file" value=""/>
                                 </div>
                             </c:if>
-                            <form id="fima">
-                                <label for="form_file" class="edit" value="aa">
+                            <form id="fima" action="uploadImg" method="post" enctype="multipart/form-data">
+                                <label for="imageInput" class="edit">
                                     <div style="color: #0D6EFD;font-size: 16px">JPG or PNG no larger than 5 MB
-                                        <i class="fa-solid fa-pen-to-square" style="font-size: 20px; padding: 0 0 0 10px"></i>
+                                        <i class="fa-solid fa-pen-to-square" style="font-size: 20px; padding-left: 10px"></i>
                                     </div>
                                 </label>
-                                <input type="hidden" id="sub" name="imagelink" value=""/>
-                                <input type="hidden" id="userid" name="uid" value="${user.userName}"/>
+                                <input type="hidden" id="userid" name="uid" value="${user.userName}" />
+                                <input id="imageInput" name="imageFile" type="file" accept="image/png, image/jpeg" />
+                                <button type="submit">Upload</button>
                             </form>
+
                         </div>
                     </div>
                     <div class="card mb-4 mb-xl-0">
                         <div class="container d-flex justify-content-center">
                             <div class="card p-3" style="margin: 10px 0">
                                 <div class="d-flex flex-row justify-content-center text-align-center">
-                                    <img src="images/logo.png">
+                                    <img src="images/logoFPT.png" alt="" width="30px">
                                     <p class="text-dark">Shopping wallet</p>
                                 </div>
                                 <div class="card-bottom pt-3 px-3 mb-2" style="padding: 10px">
@@ -232,7 +233,7 @@
                     <div class="card mb-4">
                         <div class="card-header" style="font-weight: 700">YOUR PROFILE</div>
                         <div class="card-body">
-                            <form method="post" action="profile">
+                            <form method="post" action="ProfileServlet">
                                 <div class="mb-3">  
                                     <label class="mb-1" for="inputUsername">Username</label>
                                     <input class="form-control" id="inputUsername" name="username" readonly type="text" placeholder="Enter your username" value="${user.userName}">
@@ -307,28 +308,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-                                    const $ = document.querySelector.bind(document);
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const inputFile = document.querySelector("#imageInput");
+                                        const imgPreview = document.querySelector(".box_info .avatar img");
 
-                                    function getImg() {
-                                        const input = $('.box_info .avatar input[type="file"]');
-                                        const img = $('.box_info .avatar img');
+                                        inputFile.addEventListener("change", function (event) {
+                                            const file = this.files[0];
 
-                                        input.addEventListener('change', function (event) {
-                                            if (this.files && this.files[0]) {
-                                                const newImageLink = 'images_users_' + event.target.files[0].name;
-                                                const newImageLink1 = 'images/users/' + event.target.files[0].name;
-                                                img.src = newImageLink1;
-                                                console.log(newImageLink1);
+                                            if (file) {
+                                                // Kiểm tra loại file (JPG, PNG)
+                                                if (!["image/jpeg", "image/png"].includes(file.type)) {
+                                                    alert("Chỉ chấp nhận tệp JPG hoặc PNG!");
+                                                    return;
+                                                }
 
-                                                var form = document.querySelector("#fima");
+                                                // Kiểm tra kích thước file (≤ 5MB)
+                                                if (file.size > 5 * 1024 * 1024) {
+                                                    alert("File quá lớn! Vui lòng chọn ảnh dưới 5MB.");
+                                                    return;
+                                                }
 
-                                                document.getElementById("sub").value = newImageLink;
-                                                form.submit();
-                                                console.log(form);
+                                                // Hiển thị ảnh xem trước
+                                                const reader = new FileReader();
+                                                reader.onload = function (e) {
+                                                    imgPreview.src = e.target.result;
+                                                };
+                                                reader.readAsDataURL(file);
                                             }
                                         });
-                                    }
-                                    getImg();
+                                    });
+
         </script>
     </body>
 </html>

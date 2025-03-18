@@ -17,14 +17,14 @@
 </head>
 
 <body>
-    
+
     <section class="fxt-template-animation fxt-template-layout1">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-12 fxt-bg-color">
                     <div class="fxt-content" >
                         <div class="fxt-header" style="margin-bottom: 15px">
-                            <a href="home.jsp" class="fxt-logo"><img src="images/logo.png" alt="Logo"></a>
+                            <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="40px"></a>
                             <div class="fxt-page-switcher">
                                 <a href="login.jsp" class="switcher-text1 active">Log In</a>
                                 <a href="register.jsp" class="switcher-text1">Register</a>
@@ -53,17 +53,15 @@
                                         <input ${reMem==null?"":"checked"} id="remember" type="checkbox" name="remember" style=";margin-right: 6px; width: 15px; height: 15px">
                                         <label style="font-size: 15px" for="remember">Remember me</label>
                                     </div>
-                                    <div>
-                                        <a style="color: black" href="forgot" class="switcher-text2">Forgot Password</a>
-                                    </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style="display: flex; justify-content: center;">
                                     <div class="fxt-transformY-50 fxt-transition-delay-3">
                                         <div class="fxt-content-between">
                                             <button type="submit" class="fxt-btn-fill">Log in</button>
                                         </div>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>
