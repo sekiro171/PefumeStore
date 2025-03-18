@@ -73,12 +73,14 @@
                                 </div>
                                 <div class="form-group" style="display: flex; align-items: center; justify-content: space-between">
                                     <label style="margin-right: 20px">Image</label>
-                                    <div>
+
+                                    <div id="imagePreview">
                                         <c:forEach var="img" items="${detail.image}">
-                                            <img style="width: 200px; height: auto; margin-right: 10px;" src="${img}" mutiple>
+                                            <img style="width: 200px; height: auto; margin-right: 10px;" src="${img}">
                                         </c:forEach>
                                     </div>
-                                    <input id="imageInput" name="image" type="file" multiple>
+                                    <input id="imageInput" name="image" type="file" multiple accept="image/png, image/jpeg">
+
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
@@ -172,5 +174,38 @@
                                     monthsSelect.value = defaultMonth;
                                     yearsSelect.value = defaultYear;
         </script>
+      
+        <script>
+            document.getElementById('imageInput').addEventListener('change', function (event) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.innerHTML = ""; // Xóa hình ảnh cũ
+
+                const files = event.target.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+
+                    // Kiểm tra kích thước file (5MB)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert("File " + file.name + " quá lớn! Vui lòng chọn ảnh dưới 5MB.");
+                        continue;
+                    }
+
+                    // Kiểm tra định dạng
+                    if (!['image/jpeg', 'image/png'].includes(file.type)) {
+                        alert("File " + file.name + " không đúng định dạng! Chỉ hỗ trợ JPG & PNG.");
+                        continue;
+                    }
+
+                    const imgElement = document.createElement('img');
+                    imgElement.style.width = "200px";
+                    imgElement.style.height = "auto";
+                    imgElement.style.marginRight = "10px";
+                    imgElement.src = URL.createObjectURL(file);
+                    imagePreview.appendChild(imgElement);
+                }
+            });
+        </script>
+
     </body>
 </html>

@@ -22,8 +22,8 @@
             <td class="text_page">${o.contactName}</td>
             <td class="text_page">${o.country}</td> 
             <td class="text_page" style="padding: 0 12px 16px">
-                <a href="updatesupplier?sid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
-                <a href="deletesupplier?sid=${o.id}"><button type="button" class="btn btn-danger">
+                <a href="UpdateSupplierServlet?sid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
+                <a href="DeleteSupplierServlet?sid=${o.id}"><button type="button" class="btn btn-danger">
                         <i class="fa-solid fa-trash" data-toggle="tooltip" title="Delete"></i>
                     </button>
                 </a>

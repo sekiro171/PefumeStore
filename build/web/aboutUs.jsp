@@ -62,7 +62,6 @@
                                                 </div>
                                             </li>
                                             <li><a href="aboutUs.jsp" style="color:#f6692a ">About Us</a></li>
-                                            <li><a href="contact.jsp" >Contact Us</a></li>
                                                 <c:if test="${sessionScope.account==null}">
                                                 <li>
                                                     <a href="#">User <i class="fa fa-angle-down"></i></a>
@@ -106,7 +105,7 @@
                     <div class="container">
                         <h2 style="font-family: Roboto;font-size: 48px; margin-top: 50px">Store
                             <span style="font-family: Roboto;color: #ff5722;">
-                                PERFUME PARADISE
+                                FPT PERFUME
                             </span>
                         </h2>
                         <h3 style="font-weight: 400;">
@@ -126,7 +125,7 @@
                                     <p><i class="fa fa-check" aria-hidden="true"></i>Giao hàng
                                         <span>nhanh chóng</span> nhận hàng sau 3 ngày.</p>
                                 </div>
-                                <a class="button-click" href="refine?cid_refine=0" data-href="#section_detail">
+                                <a class="button-click" href="RefineServlet?cid_refine=0" data-href="#section_detail">
                                     <button>CHỌN MUA NGAY </button>
                                 </a>
                             </div>
@@ -148,7 +147,7 @@
                                     <h2 class="section_inspiration_title">Cam Kết Chính Hãng</h2>
                                     <div class="section_inspiration_content">
                                         <p>
-                                            Tại Perfume Paradise, chúng tôi tự hào mang đến cho quý khách hàng những sản phẩm nước hoa chính hãng, đảm bảo về chất 
+                                            Tại FPT Perfume, chúng tôi tự hào mang đến cho quý khách hàng những sản phẩm nước hoa chính hãng, đảm bảo về chất 
                                             lượng và nguồn gốc xuất xứ. Chúng tôi hợp tác chặt chẽ với các nhãn hiệu nổi tiếng trên thị
                                             trường để đảm bảo rằng mọi sản phẩm mà quý khách chọn lựa đều là sự kết hợp tinh tế giữa nghệ thuật và chất lượng.
                                         </p>
@@ -198,7 +197,7 @@
                                             mang đến những dòng nước hoa độc đáo và nổi bật</i></blockquote>
 
                                     <div class="section_material_1_content">
-                                        Perfume Paradise tự hào mang đến cho quý khách hàng một bộ sưu tập nước hoa đa dạng và phong phú,
+                                        FPT Perfume tự hào mang đến cho quý khách hàng một bộ sưu tập nước hoa đa dạng và phong phú,
                                         từ những hương thơm tinh tế và quyến rũ cho đến những lựa chọn tươi mới và tràn đầy năng lượng.
                                         Chúng tôi liên tục cập nhật danh mục sản phẩm để đáp ứng mọi sở thích và phong cách cá nhân của quý khách.
                                     </div>
@@ -219,7 +218,7 @@
                                     <h3 class="section_material_2_title">Hỗ Trợ Khách Hàng Nhanh Chóng</h3>
 
                                     <div class="section_material_2_content">
-                                        Tại Perfume Paradise, đội ngũ hỗ trợ khách hàng của chúng tôi luôn sẵn sàng lắng
+                                        Tại FPT Perfume, đội ngũ hỗ trợ khách hàng của chúng tôi luôn sẵn sàng lắng
                                         nghe và giải đáp mọi thắc mắc của quý khách. Bạn có thể liên hệ với chúng tôi thông 
                                         qua điện thoại, email hoặc trực tiếp tại cửa hàng để nhận được sự tư vấn chuyên nghiệp 
                                         và nhanh chóng. Chúng tôi tin rằng sự hài lòng của khách hàng là chìa khóa mở cửa cho sự 
@@ -239,57 +238,8 @@
                 <!-- end group 3 -->
 
 
-
-
-
-
-                <!-- group 5 -->
                 <div class="clear"></div>
 
-                <div id="section_contact" class="page-section nobottompadding notoppadding"  style="padding: 0">
-                    <div class="row noleftmargin norightmargin common-height">
-                        <div class='index_map col-md-6 col-sm-6 hidden-xs nopadding'>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.60994153052!2d106.80730807586922!3d10.841132857995166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1703229023591!5m2!1sen!2s"
-                                width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-                        </div>
-
-                        <!-- Google Map End -->
-
-                        <div class="col-md-6 col-sm-6" style="background-color: #383c44">
-                            <div class="max-height" style='padding: 60px 30px'>
-                                <h3 class="" style='color: #ffffff; font-size: 24px; '>Văn phòng chính</h3>
-
-                                <div style="line-height: 1.7;">
-                                    <address style="line-height: 1.7; font-size: 16px; color: #dbdbdb ;">
-                                        <strong style='color: #fff'>North America:</strong><br>
-                                        795 Folsom Ave, Suite 600<br>
-                                        San Francisco, CA 94107<br>
-
-                                    </address>
-                                    <address style="line-height: 1.7; font-size: 16px; color: #dbdbdb ;">
-                                        <strong style='color: #fff'>Miền Nam:</strong><br>
-                                        61/2 Quang Trung, Ward 10<br>
-                                        Go Vap District, Ho Chi Minh city<br>
-                                        Hotline: 1900 9090<br />
-                                        Email: perfumeparadisevn@gmail.com
-                                    </address>
-                                    <address style="line-height: 1.7; font-size: px; color: #ffffff ;">
-
-                                    </address>
-                                    <address style="line-height: 1.7; font-size: px; color: #ffffff ;">
-
-                                    </address>
-                                    <address style="line-height: 1.7; font-size: px; color: #ffffff ;">
-
-                                    </address>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
                 <style>
                     #section_contact {
                         position: relative;

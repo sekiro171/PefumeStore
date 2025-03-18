@@ -196,7 +196,7 @@
         <header style="background-color: black; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center">
             <div class="col-lg-2">
                 <div class="logo">
-                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
+                    <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                 </div>
             </div>
             <jsp:include page="header_right.jsp"></jsp:include>

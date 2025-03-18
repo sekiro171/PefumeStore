@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
-        
+
         <link rel="stylesheet" href="css/style.css">
         <style>
             li a:hover {
@@ -51,12 +51,33 @@
                 <div class="header_container sticky-header" style="padding: 0">
                     <div class="container-fluid" style="background-color: black">
                         <div class="row align-items-center" style="padding: 8px 0">
-                            <div class="col-lg-3">
+                            <div class="col-lg-1">
                                 <div class="logo">
-                                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
+                                    <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+
+                            <div class="col-lg-4" ">
+                                <div class="main_menu menu_two menu_position">
+                                    <nav>
+                                        <ul>
+                                            <li>
+                                                <a href="RefineServlet" class="active"> Home</a>
+                                            </li>
+                                            <li><a href="aboutUs.jsp">About Us</a></li>
+                                            <li>
+                                                <a href="profile.jsp">Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="ChangePassServlet">Security</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
                                 <form action="" method="get" style="display: flex; justify-content: center">
                                     <input name="productName" value="${requestScope.searchAtHome != null ? requestScope.searchAtHome : ""}" id="searchId" type="text" oninput="searchByName()" placeholder="Search your perfume" style="width: 60%; padding: 4px 10px; border-radius: 15px">
                                     <button type="submit" style="border-radius: 50%; width: 40px; font-size: 18px;"><i class="fa fa-search"></i></button>
@@ -66,7 +87,7 @@
                                 <%@ include file="header_right.jsp" %> 
                             </div>
                         </div>
-                        <div class="row" style="justify-content: flex-start; padding: 10px 0"">
+                        <div class="row" style="justify-content: center; padding: 10px 0"">
                             <ul style="display: flex">
                                 <li class="li_header"  >
                                     <a class="${cid_refine==0?"active":""}" href="RefineServlet?cid=${0}">ALL
@@ -85,6 +106,7 @@
                 </div>
             </div>
         </header>
+        <br>
         <div class="home_section_two color_two mb-70" style="margin-top: 100px; margin-bottom: 50px">
             <div class="container">
                 <div class="row">
@@ -132,55 +154,7 @@
                                                 </c:if>
                                             </fieldset>
                                         </div>
-                                        <div class="section_title section_title_style2">
-                                            <h2 style="font-size: 16px">Average Reviews</h2>
-                                            <fieldset class="responsiveFacets_sectionContent " aria-hidden="false">
-                                                <div class="responsiveFacets_sectionItemLabel">
-                                                    <div>
-                                                        <input type="hidden" value="${numberStar}" name="numberStar" id="chosseStar"/>
-                                                        <div id="option1" style="margin-bottom: 10px; cursor: pointer" onclick="getNumberStar(this)">
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                        </div>
-                                                        <div  id="option2"  style="margin-bottom: 10px;cursor: pointer" onclick="getNumberStar(this)">
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <span style="font-weight: 600; font-size: 15px; margin-left: 10px">Above</span>
-                                                        </div>
-                                                        <div  id="option3"  style="margin-bottom: 10px;cursor: pointer" onclick="getNumberStar(this)">
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <span style="font-weight: 600; font-size: 15px; margin-left: 10px">Above</span>
-                                                        </div>
-                                                        <div  id="option4"  style="margin-bottom: 10px;cursor: pointer" onclick="getNumberStar(this)">
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <span style="font-weight: 600; font-size: 15px; margin-left: 10px">Above</span>
-                                                        </div>
-                                                        <div  id="option5"  style="margin-bottom: 10px;cursor: pointer" onclick="getNumberStar(this)">
-                                                            <i style="color: orange" class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <span style="font-weight: 600; font-size: 15px; margin-left: 10px">Above</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
+
                                         <div class="section_title section_title_style2">
                                             <h2 style="font-size: 16px">Price</h2>
                                             <fieldset class="responsiveFacets_sectionContent " aria-hidden="false">
@@ -200,41 +174,6 @@
                                                         <input type="number" style="width: 90px" name="priceto" class="shopee-price-range-filter__input" placeholder="$ TO" value="${price2 == 0 ? "" : price2}" step="0.5" min=1">
                                                     </div>
                                                     <button class="submit-price" style="">Apply</button>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="section_title section_title_style2">
-                                            <h2 style="font-size: 16px">Discount</h2>
-                                            <fieldset class="responsiveFacets_sectionContent " aria-hidden="false">
-                                                <div>
-                                                    <label class="responsiveFacets_sectionItemLabel">
-                                                        <input ${discount==0.25?"checked":""} name="discount" value="0.25" onclick="setCheckk(this)" type="checkbox" class="responsiveFacets_sectionItemCheckbox" name="en_brand_content" data-facet-value="Abercrombie+%26+Fitch" aria-label="Abercrombie &amp; Fitch (6 available products)" tabindex="0">
-                                                        <span class="responsiveFacets_sectionItem " data-facet-key="en_brand_content" data-facet-value="Abercrombie+%26+Fitch">
-                                                            <span class="responsiveFacets_sectionItemValue " aria-hidden="true">
-                                                                Up to 25% (${dis25})
-                                                            </span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                                <div>
-                                                    <label class="responsiveFacets_sectionItemLabel">
-                                                        <input ${discount==0.5?"checked":""} name="discount" value="0.5" onclick="setCheckk(this)" type="checkbox" class="responsiveFacets_sectionItemCheckbox" name="en_brand_content" data-facet-value="Allsaints" aria-label="Allsaints (2 available products)" tabindex="0">
-                                                        <span class="responsiveFacets_sectionItem " data-facet-key="en_brand_content" data-facet-value="Allsaints">
-                                                            <span class="responsiveFacets_sectionItemValue " aria-hidden="true">
-                                                                Up to 50% (${dis50})
-                                                            </span>
-                                                        </span>
-                                                    </label> 
-                                                </div>
-                                                <div>
-                                                    <label class="responsiveFacets_sectionItemLabel">
-                                                        <input ${discount==0.75?"checked":""} name="discount" value="0.75" onclick="setCheckk(this)" type="checkbox" class="responsiveFacets_sectionItemCheckbox" name="en_brand_content" data-facet-value="Allsaints" aria-label="Allsaints (2 available products)" tabindex="0">
-                                                        <span class="responsiveFacets_sectionItem " data-facet-key="en_brand_content" data-facet-value="Allsaints">
-                                                            <span class="responsiveFacets_sectionItemValue " aria-hidden="true">
-                                                                Up to 75% (${dis75})
-                                                            </span>
-                                                        </span>
-                                                    </label>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -268,9 +207,9 @@
                                             <article class="single_product">
                                                 <figure>
                                                     <div class="product_thumb" onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                                                    '${i.supplier.getCompanyName()}')" 
-                                                        <a href="#" class="primary_img"  data-toggle="modal" data-target="#modal_box">
+                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
+                                                                    '${i.supplier.getCompanyName()}')" 
+                                                         <a href="#" class="primary_img"  data-toggle="modal" data-target="#modal_box">
                                                             <img src="${i.image[0]}" alt="" >
                                                         </a>
                                                         <a href="#" class="secondary_img"  data-toggle="modal" data-target="#modal_box">
@@ -278,31 +217,13 @@
                                                         </a>
                                                         <div class="action_links">
                                                             <ul>
-                                                                <li class="add_to_cart" 
-                                                                    onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                                                    '${i.supplier.getCompanyName()}')" >
-                                                                    <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
                                                                 <li class="wishlist">
                                                                     <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
                                                                         <i style="color: #f6692a" class="fa-solid fa-heart"></i>
                                                                     </a>
                                                                 </li>
-                                                                <li style="border-color: orange" class="quick_button"
-                                                                    onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                                                    '${i.supplier.getCompanyName()}')" 
-                                                                    >
-                                                                    <a  href="#" data-toggle="modal"
-                                                                        data-target="#modal_box" title="Quick View">
-                                                                        <i style="" class="fa fa-eye"></i>
-                                                                    </a>
-                                                                </li>
                                                             </ul>
-                                                                    
+
                                                         </div>
                                                     </div>
                                                     <figcaption class="product_content">
@@ -346,7 +267,7 @@
                                 <div class="pagination col-md-12" style="margin-top: 20px; display: flex; justify-content: center">
                                     <c:if test="${requestScope.cid_refinee == null}">
                                         <c:forEach begin="${1}" end="${requestScope.numberpage}" var="i">
-                                             <a class="linkLoad ${i==1?"active":""}" id="numberPage" onclick="loadMore(this)" >${i}</a>
+                                            <a class="linkLoad ${i==1?"active":""}" id="numberPage" onclick="loadMore(this)" >${i}</a>
                                         </c:forEach>
                                     </c:if>
                                     <c:if test="${requestScope.cid_refinee != null}">
@@ -375,100 +296,55 @@
         <script src="js/clickevents.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-                                                                        function setCheckk(obj) {
-                                                                            var fries = document.getElementsByName('discount');
-                                                                            var checked = obj.value;
-                                                                            console.log(obj.checked)
-                                                                            for (var i = 0; i < fries.length; i++) {
-                                                                                if (checked == fries[i].value) {
-                                                                                    fries[i].checked = obj.checked;
-                                                                                } else {
-                                                                                    fries[i].checked = false;
-                                                                                }
-                                                                            }
+                                                function setCheckk(obj) {
+                                                    var fries = document.getElementsByName('discount');
+                                                    var checked = obj.value;
+                                                    console.log(obj.checked)
+                                                    for (var i = 0; i < fries.length; i++) {
+                                                        if (checked == fries[i].value) {
+                                                            fries[i].checked = obj.checked;
+                                                        } else {
+                                                            fries[i].checked = false;
+                                                        }
+                                                    }
 
-                                                                            document.getElementById('f1').submit();
-                                                                        }
-
-
-                                                                        function setCheck(obj) {
-                                                                            var fries = document.getElementsByName('cid_refinee');
-                                                                            if ((obj.id == 'c0') && (fries[0].checked) == true) {
-                                                                                for (var i = 1; i < fries.length; i++) {
-                                                                                    fries[i].checked = false;
-                                                                                }
-                                                                            } else {
-                                                                                for (var i = 1; i < fries.length; i++) {
-                                                                                    if (fries[i].checked == true) {
-                                                                                        fries[0].checked = false;
-                                                                                        break;
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                            document.getElementById('f1').submit();
-                                                                        }
+                                                    document.getElementById('f1').submit();
+                                                }
 
 
-                                                                        function setCheckStar(obj) {
-                                                                            var fries = document.getElementsByName('cid_refinee');
-                                                                            if ((obj.id == 'c0') && (fries[0].checked) == true) {
-                                                                                for (var i = 1; i < fries.length; i++) {
-                                                                                    fries[i].checked = false;
-                                                                                }
-                                                                            } else {
-                                                                                for (var i = 1; i < fries.length; i++) {
-                                                                                    if (fries[i].checked == true) {
-                                                                                        fries[0].checked = false;
-                                                                                        break;
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                            document.getElementById('f1').submit();
-                                                                        }
+                                                function setCheck(obj) {
+                                                    var fries = document.getElementsByName('cid_refinee');
+                                                    if ((obj.id == 'c0') && (fries[0].checked) == true) {
+                                                        for (var i = 1; i < fries.length; i++) {
+                                                            fries[i].checked = false;
+                                                        }
+                                                    } else {
+                                                        for (var i = 1; i < fries.length; i++) {
+                                                            if (fries[i].checked == true) {
+                                                                fries[0].checked = false;
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+                                                    document.getElementById('f1').submit();
+                                                }
 
-                                                                        function getNumberStar(obj) {
-                                                                            var inputStar = document.querySelector('#chosseStar');
-                                                                            var a = obj.id;
-                                                                            var star;
-                                                                            switch (a) {
-                                                                                case 'option1':
-                                                                                    star = 5;
-                                                                                    break;
-                                                                                case 'option2':
-                                                                                    star = 4;
-                                                                                    break;
-                                                                                case 'option3':
-                                                                                    star = 3;
-                                                                                    break;
-                                                                                case 'option4':
-                                                                                    star = 2;
-                                                                                    break;
-                                                                                case 'option5':
-                                                                                    star = 1;
-                                                                                    break;
-                                                                                default:
-                                                                                    break;
-                                                                            }
-                                                                            inputStar.value = star;
-                                                                            document.getElementById('f1').submit();
-                                                                        }
-
-                                                                        function searchByName() {
-                                                                            var text = document.querySelector("#searchId").value;
-                                                                            $.ajax({
-                                                                                url: "/pefumeWeb/SearchServlet",
-                                                                                type: "get",
-                                                                                data: {
-                                                                                    txt: text
-                                                                                },
-                                                                                success: function (data) {
-                                                                                    var row = document.getElementById("contentt");
-                                                                                    row.innerHTML = data;
-                                                                                },
-                                                                                error: function (xhr) {
-                                                                                }
-                                                                            });
-                                                                        }
+                                                function searchByName() {
+                                                    var text = document.querySelector("#searchId").value;
+                                                    $.ajax({
+                                                        url: "/PerfumeShop/SearchServlet",
+                                                        type: "get",
+                                                        data: {
+                                                            txt: text
+                                                        },
+                                                        success: function (data) {
+                                                            var row = document.getElementById("contentt");
+                                                            row.innerHTML = data;
+                                                        },
+                                                        error: function (xhr) {
+                                                        }
+                                                    });
+                                                }
 
 
         </script>

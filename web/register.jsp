@@ -21,7 +21,7 @@
                 <div class="col-md-6 col-12 fxt-bg-color" >
                     <div class="fxt-content" >
                         <div class="fxt-header" style="margin-bottom: 15px">
-                            <a href="HomeServlet" class="fxt-logo"><img src="images/logo.png" alt="Logo"></a>
+                            <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                             <div class="fxt-page-switcher">
                                 <a href="login.jsp" class="switcher-text1">Log In</a>
                                 <a href="register.jsp" class="switcher-text1 active">Register</a>

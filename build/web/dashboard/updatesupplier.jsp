@@ -38,10 +38,10 @@
             <div id="editEmployeeModal">
                 <div class="modal-dialog" style="width: 100%">
                     <div class="modal-content">
-                        <form action="editsupplier" method="post">
+                        <form action="EditSupplierServlet" method="post">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Supplier Information</h4>
-                                <a href="managersupplier">
+                                <a href="ManagerSupplierServlet">
                                     <button style="position: absolute; right: 20px; top: 20px; color: black" type="button" class="close" data-dismiss="modal" 
                                             aria-hidden="true">&times;
                                     </button> 

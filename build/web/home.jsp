@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Perfume Paradise Store</title>
+        <title> FPT Perfume Store</title>
         <link rel="icon" href="images/logo1.png"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,7 +42,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-2">
                                 <div class="logo">
-                                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
+                                    <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                                 </div>
                             </div>
 
@@ -102,9 +102,6 @@
         <!-- slider section starts  -->
         <section class="slider_section slider_section mb-66" style="margin-bottom: 0px">
             <div class="slider_area owl-carousel">
-                <div class="single_slider d-flex align-items-center" style="background: url('images/slider/slider1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-
-                </div>
                 <div class="single_slider d-flex align-items-center" style="background: url('images/slider/slider2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
                 </div>
@@ -122,7 +119,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section_title">
-                            <h2 class=text-shadow" style="font-size: 20px;"><span class="ani-fire">New Products 2025</span></h2>
+                            <h2 class=text-shadow" style="font-size: 20px;"><span >New Products 2025</span></h2>
                             <div class="product_tab_btn">
                                 <ul class="nav" role="tablist">
                                     <li>
@@ -161,33 +158,16 @@
                                                     </a>
                                                     <div class="action_links">
                                                         <ul>
-                                                            <li class="add_to_cart" 
-                                                                onclick="openModal('modal_box',${p.id}, '${p.image[0]}', '${p.image[1]}',
-                                                                                '${p.name}',${p.salePrice},${p.price}, '${p.describe}', '${p.classifyStr}',
-                                                                                '${p.supplier.getCompanyName()}')"">
-                                                                <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </a>
-                                                            </li>
                                                             <li class="wishlist">
                                                                 <a href="#" onclick="toggleWishlist(${p.id})" title="Add to Wishlist">
                                                                     <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="quick_button" 
-                                                                onclick="openModal('modal_box',${p.id}, '${p.image[0]}', '${p.image[1]}',
-                                                                                '${p.name}',${p.salePrice},${p.price}, '${p.describe}', '${p.classifyStr}',
-                                                                                '${p.supplier.getCompanyName()}')" >
-                                                                <a href="#" data-toggle="modal" data-target="#modal_box" 
-                                                                   title="Quick View">
-                                                                    <i class="fa fa-eye"></i>
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <figcaption class="product_content">
-                                                    <h4 class="product_name ani-fire" style="">
+                                                    <h4 class="product_name" style="">
                                                         <a href="#">${p.name}</a>
                                                     </h4>
 
@@ -195,7 +175,7 @@
                                                         <c:if test="${p.price != p.salePrice}">
                                                             <span class="old_price" id="oldprice">Rs. ${p.price}</span>
                                                         </c:if>
-                                                        <span class="current_price ani-fire">Rs. ${p.salePrice}
+                                                        <span class="current_price">Rs. ${p.salePrice}
                                                         </span>
                                                     </div>
                                                     <div class="product_rating">
@@ -290,102 +270,6 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-12">
                         <div class="home_section_left">
-                            <!-- deals product area starts -->
-
-                            <div class="deals_product_area mb-68">
-                                <div class="section_title section_title_style2">
-                                    <h2><span class="ani-fire">Hot Deals</span></h2>
-                                    <i style="color: orangered; font-size: 22px; margin-left:5px" class="fa-solid fa-fire"></i>
-                                </div>
-                                <div class="row">
-                                    <div class="deals_carousel product_column1 owl-carousel">
-                                        <c:set var="hotDeal" value="${requestScope.hotDeal}"/>
-                                        <div class="col-lg-3">
-                                            <article class="single_product">
-                                                <figure>
-                                                    <div class="product_thumb" onclick="openModal('modal_box', ${hotDeal.id}, '${hotDeal.image[0]}', '${hotDeal.image[1]}',
-                                                                    '${hotDeal.name}',${hotDeal.salePrice},${hotDeal.price}, '${hotDeal.describe}', '${hotDeal.classifyStr}',
-                                                                    '${hotDeal.supplier.getCompanyName()}')" >
-                                                        <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
-                                                            <img src="${hotDeal.image[0]}" alt="">
-                                                        </a>
-                                                        <a href="#" class="secondary_img" alt="" data-toggle="modal" data-target="#modal_box">
-                                                            <img src="${hotDeal.image[1]}" >
-                                                        </a>
-                                                        <div class="action_links">
-                                                            <ul>
-                                                                <li class="add_to_cart"
-                                                                    onclick="openModal('modal_box', ${hotDeal.id}, '${hotDeal.image[0]}', '${hotDeal.image[1]}',
-                                                                                    '${hotDeal.name}',${hotDeal.salePrice},${hotDeal.price}, '${hotDeal.describe}', '${hotDeal.classifyStr}',
-                                                                                    '${hotDeal.supplier.getCompanyName()}')"
-                                                                    >
-                                                                    <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="wishlist">
-                                                                    <a href="#" onclick="toggleWishlist(${hotDeal.id})" title="Add to Wishlist">
-                                                                        <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="quick_button" >
-
-                                                                    <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                       onclick="openModal('modal_box', ${hotDeal.id}, '${hotDeal.image[0]}', '${hotDeal.image[1]}',
-                                                                                       '${hotDeal.name}',${hotDeal.salePrice},${hotDeal.price}, '${hotDeal.describe}', '${hotDeal.classifyStr}',
-                                                                                       '${hotDeal.supplier.getCompanyName()}')" 
-                                                                       title="Quick view">
-                                                                        <i class="fa fa-eye" ></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <figcaption class="product_content">
-                                                        <!-- for deals timing -->
-                                                        <div class="product_timing">
-                                                            <div id="" data-countdown="2021/1/15">
-                                                                <div class="countdown_area">
-                                                                    <div class="single_countdown ani-fire">
-                                                                        <div id="day" class="countdown_number"></div>
-                                                                        <div class="countdown_title">days</div>
-                                                                    </div>
-                                                                    <div class="single_countdown ani-fire">
-                                                                        <div id="hour" class="countdown_number"></div>
-                                                                        <div class="countdown_title">Hours</div>
-                                                                    </div>
-                                                                    <div class="single_countdown ani-fire">
-                                                                        <div id="minutes" class="countdown_number"></div>
-                                                                        <div class="countdown_title">mins</div>
-                                                                    </div>
-                                                                    <div class="single_countdown ani-fire">
-                                                                        <div id="sec" class="countdown_number"></div>
-                                                                        <div class="countdown_title">secs</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <h4 class="product_name ani-fire">
-                                                            <a href="#">${hotDeal.name}</a>
-                                                        </h4>
-
-                                                        <div class="price_box">
-                                                            <span class="old_price">Rs.${hotDeal.price}
-                                                            </span>
-                                                            <span class="current_price ani-fire">Rs.${hotDeal.salePrice}</span>
-                                                        </div>
-
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- deals product area ends -->
-
-                            <!-- small product area starts -->
 
                             <div class="small_product_area mb-68">
                                 <div class="section_title section_title_style2">
@@ -493,28 +377,6 @@
                             </div>
                             <!-- testimonial section ends -->
 
-                            <!-- Newsletter section starts -->
-
-                            <div class="newsletter_style2" id="newsletter">
-                                <div class="newsletter_container">
-                                    <div class="section_title section_title_style2">
-                                        <h2>Newsletter</h2>
-                                    </div>
-                                    <div class="subscribe_form">
-                                        <form action="">
-                                            <input id="emailDiscount" type="email" autocomplete="off" placeholder="example@gmail.com">
-                                            <button type="button" onclick="submitEmail()">
-                                                <i class="fa fa-envelope-o"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="newsletter_content">
-                                        <p>Sign up to get news and get 25% off instantly.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Newsletter section ends -->
-
                         </div>
                     </div>
 
@@ -544,26 +406,10 @@
 
                                                             <div class="action_links">
                                                                 <ul>
-                                                                    <li class="add_to_cart"
-                                                                        onclick="openModal('modal_box',${t.id}, '${t.image[0]}', '${t.image[1]}',
-                                                                                        '${t.name}',${t.salePrice},${t.price}, '${t.describe}', '${t.classifyStr}',
-                                                                                        '${t.supplier.getCompanyName()}')">
-                                                                        <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                                                            <i class="fa fa-shopping-cart"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                   
                                                                     <li class="wishlist">
                                                                         <a href="#" onclick="toggleWishlist(${t.id})" title="Add to Wishlist">
                                                                             <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="quick_button" 
-                                                                        onclick="openModal('modal_box',${t.id}, '${t.image[0]}', '${t.image[1]}',
-                                                                                        '${t.name}',${t.salePrice},${t.price}, '${t.describe}', '${t.classifyStr}',
-                                                                                        '${t.supplier.getCompanyName()}')" >
-                                                                        <a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                           title="Quick View">
-                                                                            <i class="fa fa-eye"></i>
                                                                         </a>
                                                                     </li>
                                                                 </ul>
@@ -640,26 +486,9 @@
 
                                                         <div class="action_links">
                                                             <ul>
-                                                                <li class="add_to_cart"
-                                                                    onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                                                    '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                                                    '${i.supplier.getCompanyName()}')">
-                                                                    <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
                                                                 <li class="wishlist">
                                                                     <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
                                                                         <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="quick_button" 
-                                                                    onclick="openModal('modal_box', ${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                                                    '${i.name}', ${i.salePrice}, ${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                                                    '${i.supplier.getCompanyName()}')" >
-                                                                    <a href="#" data-toggle="modal"
-                                                                       data-target="#modal_box" title="Quick View">
-                                                                        <i class="fa fa-eye"></i>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -720,7 +549,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 50px">
                             <div class="widgets_container contact_us">
                                 <div class="footer_logo">
-                                    <a href="#"><img src="images/logo.png" alt="Logo"></a>
+                                    <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                                 </div>
                                 <div class="footer_desc">
                                     <p>Get all types of perfume from us within 2 day delivery. We can even order the

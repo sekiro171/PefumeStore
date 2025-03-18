@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-6" style="text-align: center; margin-top: 20px; margin-bottom: 20px;padding-top: 20px"F>
-                                    <form action="managersupplier" method="post" style="display: flex; justify-content: center">
+                                    <form action="ManagerSupplierServlet" method="post" style="display: flex; justify-content: center">
                                         <input name="valueSearch" value="${requestScope.searchValue != null ? requestScope.searchValue : ""}" id="searchId" type="text" oninput="searchByName()" placeholder="Search company name" style="width: 60%; padding: 4px 10px; border-radius: 15px">
                                     <button type="submit" style="border-radius: 50%; width: 40px; font-size: 18px; margin-left: 10px"><i class="fa fa-search"></i></button>
                                 </form>
@@ -163,8 +163,8 @@
                                                 <td class="text_page">${o.contactName}</td>
                                                 <td class="text_page">${o.country}</td> 
                                                 <td class="text_page" style="padding: 0 12px 16px">
-                                                    <a href="updatesupplier?sid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
-                                                    <a href="deletesupplier?sid=${o.id}">
+                                                    <a href="UpdateSupplierServlet?sid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
+                                                    <a href="DeleteSupplierServlet?sid=${o.id}">
                                                         <button type="button" class="btn btn-danger">
                                                             <i class="fa-solid fa-trash" data-toggle="tooltip" title="Delete"></i>
                                                         </button>
@@ -187,7 +187,7 @@
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="addsupplier" method="post">
+                    <form action="AddSupplierServlet" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add Supplier</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -252,7 +252,7 @@
             function searchByName() {
                 var text = document.querySelector("#searchId").value;
                 $.ajax({
-                    url: "/PefumeMN-Website/searchSupplier",
+                    url: "/PefumeShop/searchSupplier",
                     type: "get",
                     data: {
                         txt: text

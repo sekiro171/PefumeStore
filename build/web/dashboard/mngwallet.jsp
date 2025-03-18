@@ -120,12 +120,48 @@
                                 </div>
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-6" style="text-align: center; margin-top: 20px; margin-bottom: 20px;padding-top: 20px"F>
-                                    <form action="managerAccount" method="post" style="display: flex; justify-content: center">
+                                    <form action="ManagerAccountServlet" method="post" style="display: flex; justify-content: center">
                                         <input name="valueSearch" value="${requestScope.searchValue != null ? requestScope.searchValue : ""}" id="searchId" type="text" oninput="searchByName()" placeholder="Search user name" style="width: 60%; padding: 4px 10px; border-radius: 15px">
                                     <button type="submit" style="border-radius: 50%; width: 40px; font-size: 18px; margin-left: 10px"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
                         </div>
+
+                        <c:if test='${sessionScope.balance != null}'>
+                            <%
+                                String username = (String) session.getAttribute("userName");
+                                double balance = (double) session.getAttribute("balance");
+                            %>
+
+          <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow-lg p-4 rounded-4">
+            <h4 class="text-center fw-bold text-primary">Request Add Balance</h4>
+            <form action="AddBalanceServlet" class="mt-4">
+                <div class="mb-3">
+                    <label for="username" class="form-label fw-semibold">UserName</label>
+                    <input type="text" id="username" name="userName" 
+                           class="form-control text-center fw-bold border-primary" 
+                           value="<%= username%>" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="balance" class="form-label fw-semibold">Balance</label>
+                    <input type="text" id="balance" name="balance" 
+                           class="form-control text-center fw-bold border-primary"
+                           value="<%= balance%>">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary fw-bold">
+                        <i class="bi bi-plus-circle me-2"></i> Add Balance
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+                        </c:if>
+
 
                         <c:if test="${error!=null }">
                             <div style="margin-top: 20px" class="alert alert-danger" role="alert">
@@ -191,7 +227,7 @@
                                                         function searchByName() {
                                                             var text = document.querySelector("#searchId").value;
                                                             $.ajax({
-                                                                url: "/PefumeMN-Website/searchWallet",
+                                                                url: "/PerfumeShop/searchWallet",
                                                                 type: "get",
                                                                 data: {
                                                                     txt: text

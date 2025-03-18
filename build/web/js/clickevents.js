@@ -1,3 +1,4 @@
+
 function openModal(
         modalID,
         id,
@@ -122,10 +123,10 @@ function modalOpen2(modalID, name, avt, balance) {
                                             <h4>Balance in card:</h4>
                                             <h3 style="color: green">$ ${balance}</h3>
                                         </div>
-                                    <form action="wallet" method="get">
-                                        <input  name="add" type="text" min="25" max="50000" step="5" value="25">
+                                    <form action = "BankingServlet">
+                                        <input  name="balance" type="text" min="25" max="50000" step="5" value="25">
                                         <p style="color: grey">Enter a minimum amount of $50 and a maximum of $10000</p>
-                                        <input  name="userN" type="hidden" value="${name}">
+                                        <input  name="userName" type="hidden" value="${name}">
                                         <button type="submit">Input to card</button>
                                     </form>
                                 </div>
@@ -163,7 +164,7 @@ function modalEditWallet(modalID, username) {
     let modal = `
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="form" action="addbalance" method="post">
+                    <form id="form" action="AddBalanceServlet">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add Wallet</h4>
                         </div>
@@ -229,7 +230,7 @@ function loadProductCart(obj) {
     var id = document.getElementById("id").value;
     var role = document.getElementById("role").value;
     $.ajax({
-        url: "/pefumeWeb/CartServlet",
+        url: "/PerfumeShop/CartServlet",
         type: "get",
         data: {
             quantity: quantity,
@@ -250,7 +251,7 @@ function removeProductCart(obj) {
     var id = obj.value;
     console.log(role, id);
     $.ajax({
-        url: "/pefumeWeb/CartServlet",
+        url: "/PerfumeShop/CartServlet",
         type: "get",
         data: {
             rid: id,
@@ -269,7 +270,7 @@ function removeProductCart(obj) {
 function reloadPriceViewCart(id) {
     event.preventDefault();
     $.ajax({
-        url: "/pefumeWeb/PriceViewCartServlet",
+        url: "/PerfumeShop/PriceViewCartServlet",
         type: "get",
         data: {
             rid: id
@@ -286,7 +287,7 @@ function reloadPriceViewCart(id) {
 function toggleWishlist(id) {
     event.preventDefault();
     $.ajax({
-        url: "/pefumeWeb/WishListServlet",
+        url: "/PerfumeShop/WishListServlet",
         type: "get",
         data: {
             wishId: id
@@ -306,7 +307,7 @@ function  loadMore(obj) {
     $(obj).addClass("active");
 
     $.ajax({
-        url: "/pefumeWeb/LoadPagingServlet",
+        url: "/PerfumeShop/LoadPagingServlet",
         type: "get",
         data: {
             exits: numPage

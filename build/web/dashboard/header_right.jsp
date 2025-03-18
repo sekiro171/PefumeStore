@@ -88,8 +88,8 @@
                             z-index: 1;
                             border-radius: 5px;
                             box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);">
-                            <li class="option_avt"><a href="#">Checkout</a>
-                            <li class="option_avt"><a href="#">My Account</a></li>
+                            <li class="option_avt"><a href="RefineServlet?cid_refine=0">Shopping</a>
+                            <li class="option_avt"><a href="profile.jsp">My Account</a></li>
                             <li class="option_avt">
                                 <a id="logout" data-toggle="modal" data-target="#modal_box" href="#" onclick="confirmLogout('modal_box')">
                                     <i class="fa-solid fa-right-from-bracket"></i>

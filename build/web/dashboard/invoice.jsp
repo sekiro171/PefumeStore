@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 </section>
-                <!--Section: Sales Performance KPIs-->
+
             </div>
         </main>
         <div class="modal fade" id="modal_box" role="dialog"></div>
@@ -169,25 +169,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <script src="js/main.js"></script>
         <script>
-                                                            function searchByDate(param) {
-                                                                var txtSearchDate = param.value;
-                                                                $.ajax({
-                                                                    url: "/WebsiteBanGiay/searchAjaxHoaDon",
-                                                                    type: "get", //send it through get method
-                                                                    data: {
-                                                                        ngayXuat: txtSearchDate
-                                                                    },
-                                                                    success: function (responseData) {
-                                                                        document.getElementById("content").innerHTML = responseData;
-                                                                    }
-
-                                                                });
-                                                            }
 
                                                             function changeStatus(obj1, obj2) {
                                                                 var id = obj2;
                                                                 $.ajax({
-                                                                    url: "/PefumeMN-Website/orderstatus",
+                                                                    url: "/PerfumeShop/OrderStatusAjax",
                                                                     type: "post",
                                                                     data: {
                                                                         id: id
