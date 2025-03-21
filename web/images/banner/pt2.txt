@@ -1,0 +1,22 @@
+A confidence interval for a population mean is given as (45.3, 52.7). What is the sample mean?
+49 
+A researcher surveys 200 people and finds that 110 of them prefer coffee over tea. What is the 95% confidence interval for the proportion of people who prefer coffee? (round the best answer)
+B) (0.48, 0.62)
+Which of the following factors will NOT affect the width of a confidence interval?
+D) The value of the sample mean
+When conducting a hypothesis test for the difference in two population means, which condition must be met?
+D) Both populations must be normally distributed OR the sample sizes must be large enough
+A sample of 64 students has a mean test score of 78 with a standard deviation of 12. What is the 95% confidence interval for the population mean? (round the best answer)
+A) (75.1, 80.9)
+When should a one-sided confidence interval be used instead of a two-sided confidence interval?
+A) When the researcher is only interested in whether the parameter is greater than or less than a certain value
+What happens to the width of a confidence interval when the sample size increases (assuming all other factors remain the same)?
+C) It becomes narrower
+If a researcher fails to reject the null hypothesis, which of the following is true?
+B) There is insufficient evidence to support the alternative hypothesis.
+If we change a confidence level from 95% to 99%, what happens to the confidence interval?
+C) It becomes wider
+Company claim 30 boxs
+-3.42
+manufacturer 1000 hours, 50 bulbs, 95%
+968.91 hours

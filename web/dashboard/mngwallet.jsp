@@ -97,6 +97,11 @@
                 overflow-x: hidden;
                 overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
             }
+
+            body{
+                background-image: url(images/background1.png) ;
+            }
+
         </style>
     </head>
     <body>
@@ -108,7 +113,7 @@
             <!--Main Navigation-->
         <jsp:include page="header_right.jsp"></jsp:include>
             <!--Main layout-->
-            <main>
+            <main style="opacity: 90%">
                 <div class="container pt-4" style="max-width: 1200px">
                     <section class="mb-4">
                         <div class="card">
@@ -133,32 +138,37 @@
                                 double balance = (double) session.getAttribute("balance");
                             %>
 
-          <div class="row mt-5">
-    <div class="col-md-6 offset-md-3">
-        <div class="card shadow-lg p-4 rounded-4">
-            <h4 class="text-center fw-bold text-primary">Request Add Balance</h4>
-            <form action="AddBalanceServlet" class="mt-4">
-                <div class="mb-3">
-                    <label for="username" class="form-label fw-semibold">UserName</label>
-                    <input type="text" id="username" name="userName" 
-                           class="form-control text-center fw-bold border-primary" 
-                           value="<%= username%>" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="balance" class="form-label fw-semibold">Balance</label>
-                    <input type="text" id="balance" name="balance" 
-                           class="form-control text-center fw-bold border-primary"
-                           value="<%= balance%>">
-                </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary fw-bold">
-                        <i class="bi bi-plus-circle me-2"></i> Add Balance
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+                            <div class="row mt-5">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="card shadow-lg p-4 rounded-4">
+                                        <h4 class="text-center fw-bold text-primary">Request Add Balance</h4>
+                                        <form action="AddBalanceServlet" class="mt-4">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label fw-semibold">UserName</label>
+                                                <input type="text" id="username" name="userName" 
+                                                       class="form-control text-center fw-bold border-primary" 
+                                                       value="<%= username%>" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="balance" class="form-label fw-semibold">Balance</label>
+                                                <input type="text" id="balance" name="balance" 
+                                                       class="form-control text-center fw-bold border-primary"
+                                                       value="<%= balance%>">
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" name="action" value="addBalance" class="btn btn-primary fw-bold">
+                                                    <i class="bi bi-plus-circle me-2"></i> Add Balance
+                                                </button>
+                                                
+                                                <button type="submit" name="action" value="reject" class="btn btn-primary fw-bold">
+                                                    <i class="bi bi-plus-circle me-2"></i> Reject
+                                                </button>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
                         </c:if>
 

@@ -253,10 +253,6 @@
                                         <p class="mob-text">${item.product.supplier.companyName}</p>
                                     </div>
                                     <div class="col-3">
-                                        <!--                                    <div class="">
-                                                                                <input style="width: 100px"
-                                                                                       name="quantity" type="number" min="1" max="100" step="1" value="${item.quantity}">
-                                                                            </div>-->
                                         <h6>${item.quantity}</h6>
                                     </div>
                                     <div class="col-3">

@@ -92,7 +92,7 @@
                 min-height: 100vh;
                 width: 100%;
                 font-family: "Nunito", sans-serif;
-                background-image: url(images/magic.gif);
+                background-image: url(images/backgrond2.png);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -107,9 +107,18 @@
                 right: 13px;
                 top: 40px;
             }
-            
+
             label {
                 font-size: 14px;
+            }
+
+            .mainMenu{
+                margin-left: 550px;
+            }
+
+            .row{
+                display: flex;
+                justify-content: center;
             }
         </style>
         <link rel="stylesheet" href="css/style.css">
@@ -119,17 +128,17 @@
         <c:set var="imageSession" value="${sessionScope.imageUser}"/>
         <header style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px 0; font-family: Lato, sans-serif">
             <div class="row align-items-center" style="margin: 0">
-                <div class="col-lg-2" style="padding: 0px">
+                <div class="col-lg-1" style="padding: 0px">
                     <div class="logo">
-                        <a href="home"><img src="images/logo.png" alt=""></a>
+                        <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                     </div>
                 </div>
-                <div class="col-lg-3" style="padding: 0px">
+                <div class="col-lg-4 mainMenu" style="padding: 0px">
                     <div class="main_menu menu_two menu_position">
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="HomeServlet">Home</a>
+                                    <a href="RefineServlet">Home</a>
                                 </li>
                                 <li>
                                     <a href="profile.jsp">Profile</a>
@@ -137,12 +146,12 @@
                                 <li>
                                     <a href="ChangePassServlet" class="active" >Security</a>
                                 </li>
-                                <li><a href="aboutus.jsp">About Us</a></li>
+                                <li><a href="aboutUs.jsp">About Us</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-6" style="padding: 0px; display: flex; justify-content: flex-end; align-items: center">
+                <div class="col-lg-3" style="padding: 0px; display: flex; justify-content: flex-end; align-items: center">
                     <%@ include file="header_right.jsp"%>
                 </div>
             </div>
@@ -153,7 +162,7 @@
                 <div class="col-lg-8">
                     <!-- Change password card-->
                     <div class="card mb-4">
-                        <div class="card-header" style="font-weight: 600">Change Password</div>
+                 <div class="card-header" style="font-weight: 600; background-color: #dc3545; color: white;">Change Password</div>
                         <div class="card-body">
                             <h4 style="color: red">${error}</h4>
                             <h4 style="color: green">${msg}</h4>
@@ -177,7 +186,8 @@
                                     <label style="color: red; display:none" class="mb-1" id="text"></label>
                                 </div>
                                 <input name="username" value="${user.userName}" id="confirmPassword" type="hidden">
-                                <button style="margin-top: 10px" class="btn btn-primary" type="submit">Save</button>
+                                <button style="margin-top: 10px" class="btn btn-danger" type="submit">Save</button>
+
                             </form>
                         </div>
                     </div>

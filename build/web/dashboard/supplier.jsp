@@ -48,6 +48,7 @@
             body {
                 margin: 0;
                 padding: 0;
+                background-image: url(images/background1.png) ;
             }
         </style>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"><link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb5/3.8.1/compiled.min.css"><link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css"><style>body {
@@ -109,7 +110,7 @@
             <!--Main Navigation-->
 
             <!--Main layout-->
-            <main>
+            <main style="opacity: 90%">
                 <div class="container pt-4">          
                     <section class="mb-4">
                         <div class="card">

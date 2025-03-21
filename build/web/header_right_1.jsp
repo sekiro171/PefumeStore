@@ -103,7 +103,7 @@
 
                                                     <div class="cart_info">
                                                         <a href="#">${p.product.name}</a>
-                                                        <p style="color: black"><span style="color: black">Rs.${p.price}</span> X ${p.quantity}</p>
+                                                        <p style="color: black"><span style="color: black">${p.price} VNĐ </span> X ${p.quantity}</p>
                                                     </div>
 
                                                     <div class="cart_remove">
@@ -125,12 +125,12 @@
                                     <div class="cart_table_border">
                                         <div class="cart_total">
                                             <span style="color: black">Sub Total :</span>
-                                            <span class="price" style="color:grey">Rs.${sessionScope.cart.getTotalPriceWithOutDiscount()}</span>
+                                            <span class="price" style="color:grey">${sessionScope.cart.getTotalPriceWithOutDiscount()} VNĐ</span>
                                         </div>
 
                                         <div class="cart_total mt-10">
                                             <span style="color: black">Total :</span>
-                                            <span class="price" style="color: black">Rs. ${sessionScope.cart.getTotalMoney()}</span>
+                                            <span class="price" style="color: black">${sessionScope.cart.getTotalMoney()} VNĐ</span>
                                         </div>
 
                                     </div>
@@ -146,15 +146,6 @@
                 </div>
                 <div class="header_account">
                     <ul>
-                        <li class="top_links">
-                            <a href="#">
-                                <i class="fa fa-cog"></i>
-                            </a>
-                            <ul class="dropdown_links">
-                                <li><a href="profile.jsp">My Account</a></li>
-                                <li><a href="RefineServlet?cid_refine=0">Shopping</a></li>
-                            </ul>
-                        </li>
                         <c:if test="${sessionScope.account!=null}">
                             <li onclick="change()" style="position: relative; cursor: pointer;">
                                 <img src="${sessionScope.imageUser}" width="40px" style="color: white; border-radius: 50% ;border: 2px solid white;">
@@ -168,15 +159,37 @@
                                     z-index: 1;
                                     border-radius: 5px;
                                     box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);">
-                                    <li class="option_avt"><a href="#">Checkout</a>
-                                    <li class="option_avt"><a href="${sessionScope.account.roleID==1?"admin":"profile.jsp"}">My Account</a></li>
-                                    <li class="option_avt">
+                                    <c:if test="${sessionScope.account!=null}">
+                                        <li onclick="change()" style="position: relative; cursor: pointer;">
+                                            <img src="${sessionScope.imageUser}" width="40px" style="color: white; border-radius: 50% ;border: 2px solid white;">
+                                            <ul id="avt" class="header_avt" style="margin-top:25px;
+                                                position: absolute;
+                                                left: -96px ;
+                                                background-color: white;
+                                                color: black;
+                                                padding: 10px;
+                                                max-width: 160px;
+                                                z-index: 1;
+                                                border-radius: 5px;
+                                                box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);">
 
-                                        <a id="logout" data-toggle="modal" data-target="#modal_box" href="#" onclick="confirmLogout('modal_box')">
-                                            <i class="fa-solid fa-right-from-bracket"></i>
-                                            ${sessionScope.account==null ? "": "Logout"}
-                                        </a>
-                                    </li>
+                                                <li class="option_avt">
+                                                    <a href="profile.jsp" >
+                                                        My account
+                                                    </a>
+                                                </li>
+
+                                                <li class="option_avt">
+
+                                                    <a id="logout" data-toggle="modal" data-target="#modal_box" href="#" onclick="confirmLogout('modal_box')">
+                                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                                        ${sessionScope.account==null ? "": "Logout"}
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                    </c:if>
                                 </ul>
 
                             </li>

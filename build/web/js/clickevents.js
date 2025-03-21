@@ -124,8 +124,8 @@ function modalOpen2(modalID, name, avt, balance) {
                                             <h3 style="color: green">$ ${balance}</h3>
                                         </div>
                                     <form action = "BankingServlet">
-                                        <input  name="balance" type="text" min="25" max="50000" step="5" value="25">
-                                        <p style="color: grey">Enter a minimum amount of $50 and a maximum of $10000</p>
+                                        <input  name="balance" type="text" min="25000" max="10000000" step="5" value="25">
+                                        <p style="color: grey">Enter a minimum amount of 25000 VNĐ and a maximum of 10000000 VNĐ</p>
                                         <input  name="userName" type="hidden" value="${name}">
                                         <button type="submit">Input to card</button>
                                     </form>

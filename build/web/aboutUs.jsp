@@ -25,6 +25,15 @@
             .a {
                 color: black;
             }
+
+            header{
+                background-color: #111;
+            }
+            
+            .mainMenu{
+                margin-left: 550px;
+            }
+
         </style>
     </head>
 
@@ -34,32 +43,18 @@
                 <div class="header_container sticky-header">
                     <div class="container-fluid">
                         <div class="row align-items-center">
-                            <div class="col-lg-2">
+                            <div class="col-lg-1">
                                 <div class="logo">
-                                    <a href="HomeServlet"><img src="images/logo.png" alt=""></a>
+                                    <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
-                                <!-- main-menu starts -->
+                            <div class="col-lg-4 mainMenu">
                                 <div class="main_menu menu_two menu_position">
                                     <nav>
                                         <ul>
                                             <li class="mega_items">
-                                                <a href="#">Collections <i class="fa fa-angle-down"></i></a>
-                                                <div class="mega_menu">
-                                                    <ul  class="mega_menu_inner">
-                                                        <li style="color: black; font-size: 16px">
-
-                                                            <a class="a" href="refine?cid_refine=${0}">ALL</a>
-                                                        </li>
-                                                        <c:forEach items="${requestScope.category}" var="c">
-                                                            <li style=" font-size: 16px">
-                                                                <a class="a" href="refine?cid_refine=${c.id}">${c.name}</a>
-                                                            </li>
-                                                        </c:forEach>
-                                                    </ul>
-                                                </div>
+                                                <a href="RefineServlet">Home <i class="fa fa-angle-down"></i></a>
                                             </li>
                                             <li><a href="aboutUs.jsp" style="color:#f6692a ">About Us</a></li>
                                                 <c:if test="${sessionScope.account==null}">
@@ -76,12 +71,16 @@
                                                     <a href="profile.jsp">Profile</a> 
                                                 </li>
                                             </c:if>
+
+                                            <li>
+                                                <a href="ChangePassServlet">Security</a>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <!-- main menu ends -->
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <%@ include file="header_right.jsp"%>
                             </div>
                         </div>
@@ -90,10 +89,7 @@
                 </div>
             </div>
         </header>
-        <!-- #header end -->
-
-        <!-- Content
-============================================= -->
+                            
         <section id="content">
 
             <div class="content-wrap notoppadding nobottompadding">

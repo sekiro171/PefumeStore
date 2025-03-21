@@ -43,6 +43,8 @@
                 color: black;
                 font-weight: 600;
             }
+
+
         </style>
     </head>
     <body>
@@ -188,11 +190,6 @@
                         <div class="home_section_right">
                             <div class="product_area" >
                                 <div class="section_title_style2" style="margin-top: 50px">
-                                    <c:if test="${requestScope.cat.name == null}">
-                                        <div style="text-align: start; font-size: 18px">
-                                            Sản phẩm hiện có
-                                        </div>
-                                    </c:if>
                                     <h3 style="font-weight: 600; text-decoration: underline">${requestScope.cat.name}</h3>
                                     <div style="text-align: center; font-size: 15px">
                                         ${requestScope.cat.describe}
@@ -203,28 +200,15 @@
                                 <div id ="contentt" class="row">
                                     <c:set var="proA" value=""/>
                                     <c:forEach items="${requestScope.productPage}" var="i">
-                                        <div class="product_items col-lg-3" style="margin: 30px 0">
+                                        <div class="product_items col-lg-3" style="margin: 20px 20px;">
                                             <article class="single_product">
                                                 <figure>
                                                     <div class="product_thumb" onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
                                                                     '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
                                                                     '${i.supplier.getCompanyName()}')" 
                                                          <a href="#" class="primary_img"  data-toggle="modal" data-target="#modal_box">
-                                                            <img src="${i.image[0]}" alt="" >
+                                                             <img src="${i.image[0]}" alt="" style="height: 200px; width: 250px">
                                                         </a>
-                                                        <a href="#" class="secondary_img"  data-toggle="modal" data-target="#modal_box">
-                                                            <img src="${i.image[1]}" alt="">
-                                                        </a>
-                                                        <div class="action_links">
-                                                            <ul>
-                                                                <li class="wishlist">
-                                                                    <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
-                                                                        <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-
-                                                        </div>
                                                     </div>
                                                     <figcaption class="product_content">
                                                         <h4 class="product_name">
@@ -249,13 +233,20 @@
                                                                         </li>
                                                                     </c:forEach>
                                                                 </c:if>
+
+                                                                <div class="wishlist" style="margin-left: 20px;">                                                                    <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
+                                                                        <i style="color: #f6692a; border: 2px solid #f6692a; padding: 5px; border-radius: 5px;" class="fa-solid fa-heart"></i>
+
+                                                                    </a>
+                                                                </div>
                                                             </ul>
                                                         </div>
                                                         <div class="price_box">
                                                             <c:if test="${i.price != i.salePrice}">
-                                                                <span class="old_price">Rs. ${i.price}</span>
+                                                                <span class="old_price"> ${i.price} VNĐ</span>
                                                             </c:if>
-                                                            <span class="current_price">Rs. ${i.salePrice}</span>
+                                                            <br>
+                                                            <span class="current_price">${i.salePrice} VNĐ</span>
                                                         </div>
                                                     </figcaption>
                                                 </figure>
