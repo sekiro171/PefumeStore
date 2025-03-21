@@ -73,12 +73,14 @@
                                 </div>
                                 <div class="form-group" style="display: flex; align-items: center; justify-content: space-between">
                                     <label style="margin-right: 20px">Image</label>
+
                                     <div id="imagePreview">
                                         <c:forEach var="img" items="${detail.image}">
                                             <img style="width: 200px; height: auto; margin-right: 10px;" src="${img}">
                                         </c:forEach>
                                     </div>
                                     <input id="imageInput" name="image" type="file" multiple accept="image/png, image/jpeg">
+
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
@@ -172,8 +174,7 @@
                                     monthsSelect.value = defaultMonth;
                                     yearsSelect.value = defaultYear;
         </script>
-
-
+      
         <script>
             document.getElementById('imageInput').addEventListener('change', function (event) {
                 const imagePreview = document.getElementById('imagePreview');
@@ -205,5 +206,6 @@
                 }
             });
         </script>
+
     </body>
 </html>
