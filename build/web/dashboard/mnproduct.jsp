@@ -42,6 +42,7 @@
             body {
                 margin: 0;
                 padding: 0;
+                background-image: url(images/background1.png) ;
             }
 
             .alert.alert-success {
@@ -122,7 +123,7 @@
             </header>
         <jsp:include page="header_right.jsp"></jsp:include>
             <!--Main layout-->
-            <main>
+            <main style="opacity: 90%">
                 <div class="container pt-4">
                     <!--Section: Quan Ly tai Khoan-->
                     <section class="mb-4">
@@ -177,7 +178,7 @@
                                                 <td style="text-align: center">
                                                     <img style="width: 170px; height:180px" src="${o.image[0]}">
                                                 </td>
-                                                <td class="text_page">${o.price}$</td>
+                                                <td class="text_page">${o.price} VNĐ</td>
                                                 <td class="text_page">
                                                     <a href="UpdateProductServlet?pid=${o.id}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a>
                                                     <a href="DeleteProductServlet?pid=${o.id}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a>

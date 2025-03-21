@@ -4,6 +4,9 @@
     Author     : Admin
 --%>
 
+<%@page import="model.Wallet"%>
+<%@page import="model.User"%>
+<%@page import="perfumeshopDAO.WalletDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -90,7 +93,7 @@
                 min-height: 100vh;
                 width: 100%;
                 font-family: "Nunito", sans-serif;
-                background-image: url(images/magic.gif);
+                background-image: url(images/backgrond2.png);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -134,10 +137,20 @@
             .btn-secondary:focus{
                 box-shadow: none;
             }
+
+            .mainMenu{
+                margin-left: 550px;
+            }
+
         </style>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        
+        <% WalletDAO walletDAO = new WalletDAO(); 
+        User user = (User) session.getAttribute("account"); 
+        Wallet wallet = walletDAO.getWalletByUserName(user.getUserName());%>
+        
         <c:set var="user" value="${sessionScope.account}"/>
         <c:set var="imageSession" value="${sessionScope.imageUser}"/>
         <header style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px 0; font-family: Lato, sans-serif">
@@ -147,7 +160,7 @@
                         <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                     </div>
                 </div>
-                <div class="col-lg-3" style="padding: 0px">
+                <div class="col-lg-3 mainMenu" style="padding: 0px">
                     <div class="main_menu menu_two menu_position">
                         <nav>
                             <ul>
@@ -165,102 +178,114 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-6" style="padding: 0px; display: flex; justify-content: flex-end; align-items: center">
+                <div class="col-lg-3" style="padding: 0px; display: flex; justify-content: flex-end; align-items: center">
                     <%@ include file="header_right.jsp"%>
                 </div>
             </div>
         </header>
         <div class="container-xl px-4 mt-4">
 
-            <nav class="nav nav-borders">
-                <!--                <a class="nav-link active ms-0" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
-                                <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-profile-billing-page" target="__blank">Billing</a>
-                                <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-edit-notifications-page" target="__blank">Notifications</a>-->
-            </nav>
+
             <hr class="mt-0 mb-4">
             <div class="row">
                 <div class="col-xl-4">
-                    <div class="card mb-4 mb-xl-0">
-                        <div class="card-header">Profile Picture</div>
+                    <div class="card mb-4 mb-xl-0 shadow-sm border-0">
+                        <div class="card-header bg-danger text-white text-center fw-bold rounded-top">
+                            Profile Picture
+                        </div>
                         <div class="card-body text-center box_info">
-                            <c:if test="${imageSession!=null}">
-                                <div class="avatar">
-                                    <img class="user_image" src="${imageSession}" alt="" id="iUser" style="border: 1px solid #0D6EFD"/>
-                                    <input type="file" name="" id="form_file" value=""/>
-                                </div>
-                            </c:if>
-                            <c:if test="${imageSession==null}">
-                                <div class="avatar">
-                                    <img class="user_image" style="width: 150px" src="images/users/user.PNG" alt="" id="iUser"/>
-                                    <input type="file" name="" id="form_file" value=""/>
-                                </div>
-                            </c:if>
-                            <form id="fima" action="uploadImg" method="post" enctype="multipart/form-data">
-                                <label for="imageInput" class="edit">
-                                    <div style="color: #0D6EFD;font-size: 16px">JPG or PNG no larger than 5 MB
-                                        <i class="fa-solid fa-pen-to-square" style="font-size: 20px; padding-left: 10px"></i>
-                                    </div>
+                            <c:choose>
+                                <c:when test="${imageSession != null}">
+                                    <img class="user_image rounded-circle border border-danger shadow-sm" 
+                                         src="${imageSession}" 
+                                         alt="User Image" 
+                                         id="iUser" 
+                                         style="width: 150px; height: 150px; object-fit: cover;" />
+                                </c:when>
+                                <c:otherwise>
+                                    <img class="user_image rounded-circle border border-danger shadow-sm" 
+                                         src="images/users/user.PNG" 
+                                         alt="Default User" 
+                                         id="iUser" 
+                                         style="width: 150px; height: 150px; object-fit: cover;" />
+                                </c:otherwise>
+                            </c:choose>
+
+                            <form id="fima" action="uploadImg" method="post" enctype="multipart/form-data" class="mt-3">
+                                <label for="imageInput" class="edit d-block text-danger fw-semibold">
+                                    JPG or PNG no larger than 5 MB <i class="fa-solid fa-pen-to-square ms-2"></i>
                                 </label>
                                 <input type="hidden" id="userid" name="uid" value="${user.userName}" />
-                                <input id="imageInput" name="imageFile" type="file" accept="image/png, image/jpeg" />
-                                <button type="submit">Upload</button>
+                                <div class="mt-2">
+                                    <input id="imageInput" 
+                                           name="imageFile" 
+                                           type="file" 
+                                           accept="image/png, image/jpeg" 
+                                           class="form-control form-control-sm border-danger" />
+                                </div>
+                                <button type="submit" class="btn btn-danger mt-3 shadow-sm">
+                                    <i class="fa-solid fa-upload me-2"></i> Upload
+                                </button>
                             </form>
-
                         </div>
                     </div>
-                    <div class="card mb-4 mb-xl-0">
-                        <div class="container d-flex justify-content-center">
-                            <div class="card p-3" style="margin: 10px 0">
-                                <div class="d-flex flex-row justify-content-center text-align-center">
-                                    <img src="images/logoFPT.png" alt="" width="30px">
-                                    <p class="text-dark">Shopping wallet</p>
-                                </div>
-                                <div class="card-bottom pt-3 px-3 mb-2" style="padding: 10px">
-                                    <div class="d-flex flex-row justify-content-between text-align-center">
-                                        <div class="d-flex flex-column"><span>Balance amount</span><p>&euro; <span class="text-white">${sessionScope.wallet.balance}</span></p></div>
-                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#modal_box" onclick="modalOpen2('modal_box', '${user.userName}',
-                                                        '${imageSession}',${sessionScope.wallet.balance})">
-                                            <i class="fas fa-plus text-white"></i>
-                                        </button>
+
+                    <div class="container d-flex justify-content-center">
+                        <div class="card p-3 shadow-sm border-0" style="margin: 10px 0; border-radius: 10px;">
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <img src="images/logoFPT.png" alt="Logo" width="30px" class="me-2">
+                                <p class="text-dark fw-bold mb-0">Shopping Wallet</p>
+                            </div>
+                            <div class="card-bottom pt-3 px-3 mb-2">
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                    <div class="d-flex flex-column">
+                                        <span class="text-muted">Balance Amount</span>
+                                        <p class="fw-bold text-danger fs-5 mb-0">
+                                            VNĐ: <span class="text-danger"> <%= wallet.getBalance() %> </span>
+                                        </p>
                                     </div>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#modal_box" onclick="modalOpen2('modal_box', '${user.userName}',
+                                                    '${imageSession}', <%= wallet.getBalance() %>)">
+                                        <i class="fas fa-plus text-white"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-8" style="margin-top: -37px">
 
-                    <div class="card mb-4">
-                        <div class="card-header" style="font-weight: 700">YOUR PROFILE</div>
+                <div class="col-xl-8" style="margin-top: -37px">
+                    <div class="card mb-4 shadow-sm border-0">
+                        <div class="card-header bg-danger text-white fw-bold rounded-top">YOUR PROFILE</div>
                         <div class="card-body">
                             <form method="post" action="ProfileServlet">
-                                <div class="mb-3">  
+                                <div class="mb-3">
                                     <label class="mb-1" for="inputUsername">Username</label>
-                                    <input class="form-control" id="inputUsername" name="username" readonly type="text" placeholder="Enter your username" value="${user.userName}">
+                                    <input class="form-control border-danger" id="inputUsername" name="username" readonly type="text" placeholder="Enter your username" value="${user.userName}">
                                 </div>
                                 <div class="gx-3 mb-3">
                                     <label class="mb-1" for="inputFirstName">Full name</label>
                                     <c:if test="${sessionScope.name!=null}">
-                                        <input class="form-control acceptEdit" readonly  name="name" id="inputFirstName" type="text" placeholder="Full Name" value="${sessionScope.name}">
+                                        <input class="form-control acceptEdit border-danger" readonly name="name" id="inputFirstName" type="text" placeholder="Full Name" value="${sessionScope.name}">
                                     </c:if>
                                 </div>
 
                                 <div class="row gx-3 mb-3">
-
                                     <div class="col-md-6">
                                         <label class="mb-1" for="inputOrgName">Role</label>
-                                        <c:if test="${user.roleID == 2}">
-                                            <input class="form-control" id="inputOrgName" readonly type="text" placeholder="Enter your organization name" value="Customer">
-                                        </c:if>
-                                        <c:if test="${user.roleID == 1}">
-                                            <input class="form-control" id="inputOrgName" readonly type="text" placeholder="Enter your organization name" value="Admin">
-                                        </c:if>
+                                        <c:choose>
+                                            <c:when test="${user.roleID == 2}">
+                                                <input class="form-control border-danger" id="inputOrgName" readonly type="text" value="Customer">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input class="form-control border-danger" id="inputOrgName" readonly type="text" value="Admin">
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
-
                                     <div class="col-md-6">
                                         <label class="mb-1" for="inputLocation">Address</label>
                                         <c:if test="${sessionScope.address!=null}">
-                                            <input class="form-control acceptEdit" readonly name="address" id="inputFirstName"  type="text" placeholder="Address" value="${sessionScope.address}">
+                                            <input class="form-control acceptEdit border-danger" readonly name="address" id="inputLocation" type="text" placeholder="Address" value="${sessionScope.address}">
                                         </c:if>
                                     </div>
                                 </div>
@@ -268,32 +293,31 @@
                                 <div class="mb-3">
                                     <label class="mb-1" for="inputEmailAddress">Email address</label>
                                     <c:if test="${sessionScope.email!=null}">
-                                        <input class="form-control acceptEdit" readonly  name="email" id="inputFirstName"  type="text" placeholder="Email" value="${sessionScope.email}">
+                                        <input class="form-control acceptEdit border-danger" readonly name="email" id="inputEmailAddress" type="text" placeholder="Email" value="${sessionScope.email}">
                                     </c:if>
                                 </div>
 
                                 <div class="row gx-3 mb-3">
-
                                     <div class="col-md-6">
                                         <label class="mb-1" for="inputPhone">Phone number</label>
                                         <c:if test="${sessionScope.phone!=null}">
-                                            <input class="form-control acceptEdit" readonly name="phone" id="inputFirstName"  type="text" placeholder="Phone" value="${sessionScope.phone}">
+                                            <input class="form-control acceptEdit border-danger" readonly name="phone" id="inputPhone" type="text" placeholder="Phone" value="${sessionScope.phone}">
                                         </c:if>
                                     </div>
-
                                     <div class="col-md-6">
                                         <label class="mb-1" for="inputBirthday">Birthdate</label>
                                         <c:if test="${sessionScope.birthdate!=null}">
-                                            <input class="form-control acceptEdit" readonly name="birthday" id="inputFirstName"  type="text" placeholder="Birthdate" value="${sessionScope.birthdate}">
+                                            <input class="form-control acceptEdit border-danger" readonly name="birthday" id="inputBirthday" type="text" placeholder="Birthdate" value="${sessionScope.birthdate}">
                                         </c:if>
                                     </div>
                                 </div>
-                                <button style="" class="btn btn-primary" onclick="acceptRead()" id="buttonVip" type="button">Edit Profile</button>
-                                <button style="margin-top: 15px;padding-right: 20px ;padding-left: 20px" class="btn btn-primary"  onclick="notAccept()" id="buttonVip2" type="submit">Save</button>
+                                <button class="btn btn-danger shadow-sm" onclick="acceptRead()" id="buttonVip" type="button">Edit Profile</button>
+                                <button class="btn btn-danger shadow-sm mt-3 px-4" onclick="notAccept()" id="buttonVip2" type="submit">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="modal fade" id="modal_box" role="dialog"></div>
@@ -308,35 +332,35 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-                                    document.addEventListener("DOMContentLoaded", function () {
-                                        const inputFile = document.querySelector("#imageInput");
-                                        const imgPreview = document.querySelector(".box_info .avatar img");
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const inputFile = document.querySelector("#imageInput");
+                        const imgPreview = document.querySelector(".box_info .avatar img");
 
-                                        inputFile.addEventListener("change", function (event) {
-                                            const file = this.files[0];
+                        inputFile.addEventListener("change", function (event) {
+                            const file = this.files[0];
 
-                                            if (file) {
-                                                // Kiểm tra loại file (JPG, PNG)
-                                                if (!["image/jpeg", "image/png"].includes(file.type)) {
-                                                    alert("Chỉ chấp nhận tệp JPG hoặc PNG!");
-                                                    return;
-                                                }
+                            if (file) {
+                                // Kiểm tra loại file (JPG, PNG)
+                                if (!["image/jpeg", "image/png"].includes(file.type)) {
+                                    alert("Chỉ chấp nhận tệp JPG hoặc PNG!");
+                                    return;
+                                }
 
-                                                // Kiểm tra kích thước file (≤ 5MB)
-                                                if (file.size > 5 * 1024 * 1024) {
-                                                    alert("File quá lớn! Vui lòng chọn ảnh dưới 5MB.");
-                                                    return;
-                                                }
+                                // Kiểm tra kích thước file (≤ 5MB)
+                                if (file.size > 5 * 1024 * 1024) {
+                                    alert("File quá lớn! Vui lòng chọn ảnh dưới 5MB.");
+                                    return;
+                                }
 
-                                                // Hiển thị ảnh xem trước
-                                                const reader = new FileReader();
-                                                reader.onload = function (e) {
-                                                    imgPreview.src = e.target.result;
-                                                };
-                                                reader.readAsDataURL(file);
-                                            }
-                                        });
-                                    });
+                                // Hiển thị ảnh xem trước
+                                const reader = new FileReader();
+                                reader.onload = function (e) {
+                                    imgPreview.src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    });
 
         </script>
     </body>

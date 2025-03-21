@@ -30,6 +30,7 @@
             body {
                 margin: 0;
                 padding: 0;
+                background-image: url(images/background1.png) ;
             }
 
             select option {
@@ -108,7 +109,7 @@
             <!--Main Navigation-->
         <jsp:include page="header_right.jsp"></jsp:include>
             <!--Main layout-->
-            <main>
+            <main style="opacity: 90%">
                 <div class="container pt-4" style="max-width: 1200px">
                     <section class="mb-4">
                         <div class="card">

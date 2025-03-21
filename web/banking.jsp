@@ -133,15 +133,15 @@
             <div class="row align-items-center" style="margin: 0">
                 <div class="col-lg-2" style="padding: 0px">
                     <div class="logo">
-                        <a href="HomeServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
+                        <a href="RefineServlet"><img src="images/logoFPT.png" alt="" width="65px"></a>
                     </div>
                 </div>
-                <div class="col-lg-3" style="padding: 0px">
+                <div class="col-lg-4" style="padding: 0px; margin-left: 550px" >
                     <div class="main_menu menu_two menu_position">
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="HomeServlet">Home</a>
+                                    <a href="RefineServlet">Home</a>
                                 </li>
                                 <li><a href="aboutUs.jsp">About Us</a></li>
                                 <li>
@@ -164,7 +164,7 @@
                                 <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-edit-notifications-page" target="__blank">Notifications</a>-->
             </nav>
             <hr class="mt-0 mb-12">
-            <div class="row">
+            <div class="row" >
                 <div class="container d-flex justify-content-center align-items-center">
                     <div class="card shadow-lg p-5 text-center" style="max-width: 450px; width: 100%;">
                         <h2 class="mb-4">Trang Thanh Toán</h2>

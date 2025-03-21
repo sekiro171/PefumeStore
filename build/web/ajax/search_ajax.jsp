@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Perfume Paradise Store</title>
+        <title> FPT Perfume Store</title>
         <link rel="icon" href="images/logo1.png"/>
     </head>
     <body>
@@ -22,64 +22,41 @@
                                                             '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
                                                             '${i.supplier.getCompanyName()}')">
                             <a href="#" class="primary_img" data-toggle="modal" data-target="#modal_box">
-                                <img src="${i.image[0]}" alt="">
+                                <img src="${i.image[0]}" alt="" style="width: 250px; height: 250px">
                             </a>
-                            <a href="#" class="secondary_img" data-toggle="modal" data-target="#modal_box">
-                                <img src="${i.image[1]}" alt="">
-                            </a>
+         
 
-                            <div class="action_links">
-                                <ul>
-                                    <li class="add_to_cart"
-                                        onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                            '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                            '${i.supplier.getCompanyName()}')">
-                                        <a href="#" data-toggle="modal" data-target="#modal_box" title="Add to Cart">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li class="wishlist">
-                                        <a href="#" onclick="toggleWishlist(${i.id})"  title="Add to Wishlist">
-                                            <i style="color: #f6692a" class="fa-solid fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li class="quick_button" 
-                                        onclick="openModal('modal_box',${i.id}, '${i.image[0]}', '${i.image[1]}',
-                                                            '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
-                                                            '${i.supplier.getCompanyName()}')" >
-                                        <a href="#" data-toggle="modal"
-                                           data-target="#modal_box" title="Quick View">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <figcaption class="product_content">
                             <h4 class="product_name">
                                 <a href="#">${i.name}</a>
                             </h4>
                             <div class="product_rating" style="${requestScope.col == 4?"":"width: 100%;"}">
-                                <ul>
-                                    <c:set var="numstar" value="${i.starRating}"/>
-                                    <c:forEach begin="1" end="${numstar}" step="1">
-                                        <li>
-                                            <a href="#" style="color: orange">
-                                                <i class="fa fa-star"></i>
-                                            </a>
-                                        </li>
-                                    </c:forEach>
-                                    <c:if test="${numstar != 5}">
-                                        <c:forEach begin="${numstar + 1}" end="5" step="1">
-                                            <li>
-                                                <a href="#" style="color: black">
-                                                    <i class="fa fa-star"></i>
-                                                </a>
-                                            </li>
-                                        </c:forEach>
-                                    </c:if>
-                                </ul>
-                            </div>
+                              <ul>
+                                                                <c:set var="numstar" value="${i.starRating}"/>
+                                                                <c:forEach begin="1" end="${numstar}" step="1">
+                                                                    <li>
+                                                                        <a href="#" style="color: orange">
+                                                                            <i class="fa fa-star"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </c:forEach>
+                                                                <c:if test="${numstar != 5}">
+                                                                    <c:forEach begin="${numstar + 1}" end="5" step="1">
+                                                                        <li>
+                                                                            <a href="#" style="color: black">
+                                                                                <i class="fa fa-star"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </c:forEach>
+                                                                </c:if>
+
+                                                                <div class="wishlist" style="margin-left: 20px;">                                                                    <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
+                                                                        <i style="color: #f6692a; border: 2px solid #f6692a; padding: 5px; border-radius: 5px;" class="fa-solid fa-heart"></i>
+
+                                                                    </a>
+                                                                </div>
+                                                            </ul>
                             <div class="price_box">
                                 <c:if test="${i.price != i.salePrice}">
                                     <span class="old_price">Rs. ${i.price}</span>

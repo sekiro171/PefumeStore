@@ -151,15 +151,7 @@
             </div>
             <div class="header_account">
                 <ul>
-                    <li class="top_links">
-                        <a href="#">
-                            <i class="fa fa-cog"></i>
-                        </a>
-                        <ul class="dropdown_links">
-                            <li><a href="profile.jsp">My Account</a></li>
-                            <li><a href="RefineServlet">Shopping cart</a></li>
-                        </ul>
-                    </li>
+
                     <c:if test="${sessionScope.account!=null}">
                         <li onclick="change()" style="position: relative; cursor: pointer;">
                             <img src="${sessionScope.account.image}" width="40px" style="color: white; border-radius: 50% ;border: 2px solid white;">
@@ -173,7 +165,6 @@
                                 z-index: 1;
                                 border-radius: 5px;
                                 box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);">
-                                <li class="option_avt"><a href="#">Checkout</a>
                                 <li class="option_avt"><a href="${sessionScope.account.roleID==1?"admin":"profile.jsp"}">My Account</a></li>
                                 <li class="option_avt"><a id="logout" href="#" onclick="checkLogout()">${sessionScope.account==null ? "": "Logout"}</a></li>
                             </ul>

@@ -38,7 +38,7 @@
         </style>
     <body>
 
-        <div class="container">
+        <div class="container" style="opacity: 90%">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
