@@ -207,7 +207,7 @@
                                                                     '${i.name}',${i.salePrice},${i.price}, '${i.describe}', '${i.classifyStr}',
                                                                     '${i.supplier.getCompanyName()}')" 
                                                          <a href="#" class="primary_img"  data-toggle="modal" data-target="#modal_box">
-                                                             <img src="${i.image[0]}" alt="" style="height: 200px; width: 250px">
+                                                            <img src="${i.image[0]}" alt="" style="height: 200px; width: 250px">
                                                         </a>
                                                     </div>
                                                     <figcaption class="product_content">
@@ -234,20 +234,36 @@
                                                                     </c:forEach>
                                                                 </c:if>
 
-                                                                <div class="wishlist" style="margin-left: 20px;">                                                                    <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
+                                                                <div class="wishlist" style="margin-left: 20px;">                                                                    
+                                                                    <a href="#" onclick="toggleWishlist(${i.id})" title="Add to Wishlist">
                                                                         <i style="color: #f6692a; border: 2px solid #f6692a; padding: 5px; border-radius: 5px;" class="fa-solid fa-heart"></i>
-
                                                                     </a>
                                                                 </div>
                                                             </ul>
                                                         </div>
+                                                        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
                                                         <div class="price_box">
                                                             <c:if test="${i.price != i.salePrice}">
-                                                                <span class="old_price"> ${i.price} VNĐ</span>
+                                                                <div style="display: flex">
+                                                                    <span class="old_price">
+                                                                        <fmt:formatNumber value="${i.price}" type="number" pattern="0"/> 
+                                                                    </span> 
+                                                                    <span style="font-weight: 400;font-size: 15px;margin-right: 5px">VNĐ</span>
+                                                                </div>
                                                             </c:if>
                                                             <br>
-                                                            <span class="current_price">${i.salePrice} VNĐ</span>
+
+                                                            <div style="display: flex">
+                                                                <span class="current_price">
+                                                                    <fmt:formatNumber value="${i.salePrice}" type="number" pattern="0"/> 
+                                                                </span> 
+                                                                <span style=" font-weight: 700;font-size: 17px;color: #000; margin-left: 5px">VNĐ</span>
+                                                            </div>
                                                         </div>
+
+
+
                                                     </figcaption>
                                                 </figure>
                                             </article>
@@ -337,6 +353,15 @@
                                                     });
                                                 }
 
+                                                // Hàm thêm dấu chấm vào số
+                                                function formatPrice(element) {
+                                                    let price = element.innerText.trim(); // Lấy giá trị trong thẻ
+                                                    let formattedPrice = parseInt(price, 10).toLocaleString("vi-VN"); // Chuyển đổi sang định dạng VN
+                                                    element.innerText = formattedPrice; // Gán lại nội dung đã format
+                                                }
+
+                                                // Lặp qua tất cả các phần tử có class "old_price" và "current_price"
+                                                document.querySelectorAll(".old_price, .current_price").forEach(formatPrice);
 
         </script>
     </body>
