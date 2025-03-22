@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/index.html</file>
-            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/src/java/controller/RefineServlet.java</file>
-            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/header_right_1.jsp</file>
-            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/src/java/controller/LoadPagingServlet.java</file>
             <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/ajax/search_ajax.jsp</file>
+            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/src/java/controller/LoadPagingServlet.java</file>
             <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/refine.jsp</file>
             <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/js/clickevents.js</file>
-            <file>file:/D:/study/PRJ301/PRJ_Project/PerfumeShop/web/header_right.jsp</file>
         </group>
     </open-files>
 </project-private>

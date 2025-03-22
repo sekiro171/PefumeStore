@@ -60,9 +60,9 @@ function openModal(
                                 <h2>${name}</h2>
                             </div>
                             <div class="modal_price mb-10">
-                                <span class="new_price">Rs. ${salePrice}$</span>
+                                <span class="new_price"> ${salePrice} VNĐ</span>   
                                 <c:if test="${price != salePrice}">
-                                    <span class="old_price">Rs. ${price}$</span>
+                                    <span class="old_price"> ${price} VNĐ</span>
                                 </c:if>
                             </div>
                             <div class="modal_description mb-15">
