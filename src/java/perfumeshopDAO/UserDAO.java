@@ -25,26 +25,24 @@ import static perfumeshopDB.DatabaseInfo.USERDB;
  */
 public class UserDAO {
 
-public static Connection getConnect(){
-        try{ 
-            Class.forName(DRIVERNAME); 
-	} catch(ClassNotFoundException e) {
+    public static Connection getConnect() {
+        try {
+            Class.forName(DRIVERNAME);
+        } catch (ClassNotFoundException e) {
             System.out.println("Error loading driver" + e);
-	}
-        try{            
-            Connection con = DriverManager.getConnection(DBURL,USERDB,PASSDB);
-            return con;
         }
-        catch(SQLException e) {
+        try {
+            Connection con = DriverManager.getConnection(DBURL, USERDB, PASSDB);
+            return con;
+        } catch (SQLException e) {
             System.out.println("Error: " + e);
         }
         return null;
     }
 
-
     public User check(String username, String password) {
         String sql = "SELECT * FROM Users WHERE userName = ? and password = ? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, username);
             st.setString(2, password);
@@ -62,7 +60,7 @@ public static Connection getConnect(){
 
     public int checkAccountAdmin(String userName) {
         String sql = "select  from Users where [userName]=? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, userName);
             ResultSet rs = st.executeQuery();
@@ -78,7 +76,7 @@ public static Connection getConnect(){
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
         String sql = "select * from Users WHERE [status] = 1 order by roleId asc";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -89,10 +87,11 @@ public static Connection getConnect(){
         }
         return list;
     }
+    
 
     public boolean checkUserNameDuplicate(String username) {
         String sql = "SELECT * FROM Users WHERE userName = ? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, username);
             ResultSet rs = st.executeQuery();
@@ -106,13 +105,49 @@ public static Connection getConnect(){
         }
         return false;
     }
+    
+   /**
+ * Checks if an email already exists in the database among active users
+ * @param email The email to check
+ * @return true if the email exists, false otherwise
+ */
+public boolean isEmailExist(String email) {
+    String sql = "SELECT 1 FROM Users WHERE Email = ? AND [status] = 1";
+    try (Connection con = getConnect()) {
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, email);
+        ResultSet rs = st.executeQuery();
+        return rs.next(); // Returns true if email exists
+    } catch (SQLException e) {
+        System.out.println("Error checking email existence: " + e);
+    }
+    return false;
+}
+
+/**
+ * Checks if a phone number already exists in the database among active users
+ * @param phone The phone number to check
+ * @return true if the phone number exists, false otherwise
+ */
+public boolean isPhoneExist(String phone) {
+    String sql = "SELECT 1 FROM Users WHERE Phone = ? AND [status] = 1";
+    try (Connection con = getConnect()) {
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, phone);
+        ResultSet rs = st.executeQuery();
+        return rs.next(); // Returns true if phone exists
+    } catch (SQLException e) {
+        System.out.println("Error checking phone existence: " + e);
+    }
+    return false;
+}
 
     public void updateImage(String image, String userName) {
         String sql = "UPDATE [dbo].[Users]\n"
                 + "   SET \n"
                 + "      [Image] = ?\n"
                 + " WHERE userName = ? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, image);
             st.setString(2, userName);
@@ -135,7 +170,7 @@ public static Connection getConnect(){
         sql += ", [email] =" + "?";
         sql += ", [BirthDay] =" + "?";
         sql += " WHERE userName = ?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, name);
             st.setString(2, address);
@@ -152,7 +187,7 @@ public static Connection getConnect(){
 
     public User getUserByUserName(String userName) {
         String sql = "SELECT * FROM [dbo].[Users] where UserName=? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             //set ?
             st.setString(1, userName);
@@ -168,9 +203,10 @@ public static Connection getConnect(){
         }
         return null;
     }
+
     // 
-   public int getNumberUsers() {
-        try (Connection con = getConnect()){
+    public int getNumberUsers() {
+        try (Connection con = getConnect()) {
             String sql = "SELECT COUNT(*) FROM Users";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -184,19 +220,19 @@ public static Connection getConnect(){
     }
 
     public void insert(User c) {
-        String sql = "INSERT INTO [dbo].[Users]\n" +
-"           ([UserName]\n" +
-"           ,[FullName]\n" +
-"           ,[Password]\n" +
-"           ,[RoleID]\n" +
-"           ,[Image]\n" +
-"           ,[Email]\n" +
-"           ,[BirthDay]\n" +
-"           ,[Address]\n" +
-"           ,[Phone]\n" +
-"           ,[status])\n" +
-"     VALUES (?,?,?,?,?,?,?,?,?,?)";
-        try (Connection con = getConnect()){
+        String sql = "INSERT INTO [dbo].[Users]\n"
+                + "           ([UserName]\n"
+                + "           ,[FullName]\n"
+                + "           ,[Password]\n"
+                + "           ,[RoleID]\n"
+                + "           ,[Image]\n"
+                + "           ,[Email]\n"
+                + "           ,[BirthDay]\n"
+                + "           ,[Address]\n"
+                + "           ,[Phone]\n"
+                + "           ,[status])\n"
+                + "     VALUES (?,?,?,?,?,?,?,?,?,?)";
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, c.getUserName());
@@ -217,7 +253,7 @@ public static Connection getConnect(){
 
     public int countAllUser() {
         String sql = "select count(*) from Users where [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -242,7 +278,7 @@ public static Connection getConnect(){
                 + "           ,[status])\n"
                 + "     VALUES\n"
                 + "           (?,?,?,?,?,?,?,?,?)";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, UserName);
             st.setString(2, FullName);
@@ -260,7 +296,7 @@ public static Connection getConnect(){
 
     public void deleteUser(String username) {
         String sql = "update Users set status = 0 where UserName= ?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, username);
             st.executeUpdate();
@@ -271,7 +307,7 @@ public static Connection getConnect(){
     public static void main(String[] args) {
         UserDAO p = new UserDAO();
         p.insertUser("duc", "thanh", "123",
-             2, "thanh@gmail.com", "2003-09-08", "4012412341");
+                2, "thanh@gmail.com", "2003-09-08", "4012412341");
         List<User> list = p.getAllUsers();
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getFullName());
@@ -282,7 +318,7 @@ public static Connection getConnect(){
         List<Spending> list = new ArrayList<>();
         String sql = "select top(5) u.*, sum(TotalMoney) as TotalMoney from Orders o inner join Users u on o.UserName = u.UserName and u.status = 1 group by u.Address, "
                 + "u.BirthDay, u.Email, u.FullName, u.UserName, u.Password, u.Image, u.RoleID, u.UserID, u.Phone, u.status\n" + " order by TotalMoney desc";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -299,7 +335,7 @@ public static Connection getConnect(){
     public List<User> getUsersBySearchName(String txtSearch) {
         List<User> list = new ArrayList<>();
         String sql = "SELECT * FROM [dbo].[Users] where UserName LIKE ? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             //set ?
             st.setString(1, "%" + txtSearch + "%");
@@ -315,7 +351,7 @@ public static Connection getConnect(){
 
     public void changePassword(User s) {
         String sql = "Update Users set password = ? where username = ? and [status] = 1";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, s.getPassword());
             st.setString(2, s.getUserName());
@@ -325,24 +361,12 @@ public static Connection getConnect(){
         }
     }
 
-    public String checkEmailExist(String email) {
-        try (Connection con = getConnect()){
-            String sql = "SELECT * FROM Users WHERE Email = ?";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, email);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                return email;
-            }
-        } catch (SQLException e) {
-        }
-        return null;
-    }
+    
 
     // 
     public String getUserNameByEmail(String email) {
         String sql = "SELECT Top 1 UserName FROM [dbo].[Users] WHERE Email = ?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             //set ?
             st.setString(1, email);
@@ -356,16 +380,16 @@ public static Connection getConnect(){
         }
         return null;
     }
-    
+
     //
     public void updatePassByUserName(String pass, String username) {
         String sql = "update Users set Password = ? where UserName= ?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, pass);
             st.setString(2, username);
             st.executeUpdate();
         } catch (Exception e) {
         }
-}
+    }
 }
